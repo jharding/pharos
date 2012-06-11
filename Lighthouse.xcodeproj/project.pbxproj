@@ -14,7 +14,6 @@
 		32E4C0E11585C977005DB9CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32E4C0DF1585C977005DB9CC /* InfoPlist.strings */; };
 		32E4C0E31585C977005DB9CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E4C0E21585C977005DB9CC /* main.m */; };
 		32E4C0E71585C977005DB9CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E4C0E61585C977005DB9CC /* AppDelegate.m */; };
-		32E4C0EA1585C977005DB9CC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E4C0E81585C977005DB9CC /* MainStoryboard.storyboard */; };
 		32E4C0ED1585C977005DB9CC /* Lighthouse.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32E4C0EB1585C977005DB9CC /* Lighthouse.xcdatamodeld */; };
 		32E4C0F01585C977005DB9CC /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E4C0EF1585C977005DB9CC /* MasterViewController.m */; };
 		32E4C0F31585C977005DB9CC /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E4C0F21585C977005DB9CC /* DetailViewController.m */; };
@@ -24,6 +23,11 @@
 		32E4C0FE1585C977005DB9CC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0DA1585C977005DB9CC /* CoreData.framework */; };
 		32E4C1061585C977005DB9CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32E4C1041585C977005DB9CC /* InfoPlist.strings */; };
 		32E4C1091585C978005DB9CC /* LighthouseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E4C1081585C978005DB9CC /* LighthouseTests.m */; };
+		32E4C1181585CA3A005DB9CC /* Marker.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E4C1171585CA3A005DB9CC /* Marker.m */; };
+		32E4C11C1585CA5E005DB9CC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E4C11B1585CA5E005DB9CC /* MBProgressHUD.m */; };
+		32E4C11E1585CA8B005DB9CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C11D1585CA8B005DB9CC /* MapKit.framework */; };
+		32E4C1201585CA90005DB9CC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C11F1585CA8F005DB9CC /* CoreLocation.framework */; };
+		32E4C1221585CB00005DB9CC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E4C1211585CAFF005DB9CC /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,24 +46,30 @@
 		32E4C0D61585C977005DB9CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32E4C0D81585C977005DB9CC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		32E4C0DA1585C977005DB9CC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		32E4C0DE1585C977005DB9CC /* Lighthouse-Info.plist */ = {isa = PBXFileReference; path = "Lighthouse-Info.plist"; sourceTree = "<group>"; };
+		32E4C0DE1585C977005DB9CC /* Lighthouse-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Lighthouse-Info.plist"; sourceTree = "<group>"; };
 		32E4C0E01585C977005DB9CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		32E4C0E21585C977005DB9CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		32E4C0E41585C977005DB9CC /* Lighthouse-Prefix.pch */ = {isa = PBXFileReference; path = "Lighthouse-Prefix.pch"; sourceTree = "<group>"; };
-		32E4C0E51585C977005DB9CC /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		32E4C0E41585C977005DB9CC /* Lighthouse-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lighthouse-Prefix.pch"; sourceTree = "<group>"; };
+		32E4C0E51585C977005DB9CC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		32E4C0E61585C977005DB9CC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		32E4C0E91585C977005DB9CC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		32E4C0EC1585C977005DB9CC /* Lighthouse.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lighthouse.xcdatamodel; sourceTree = "<group>"; };
-		32E4C0EE1585C977005DB9CC /* MasterViewController.h */ = {isa = PBXFileReference; path = MasterViewController.h; sourceTree = "<group>"; };
+		32E4C0EE1585C977005DB9CC /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		32E4C0EF1585C977005DB9CC /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		32E4C0F11585C977005DB9CC /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
+		32E4C0F11585C977005DB9CC /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		32E4C0F21585C977005DB9CC /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		32E4C0F91585C977005DB9CC /* LighthouseTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LighthouseTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E4C0FA1585C977005DB9CC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		32E4C1031585C977005DB9CC /* LighthouseTests-Info.plist */ = {isa = PBXFileReference; path = "LighthouseTests-Info.plist"; sourceTree = "<group>"; };
+		32E4C1031585C977005DB9CC /* LighthouseTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LighthouseTests-Info.plist"; sourceTree = "<group>"; };
 		32E4C1051585C977005DB9CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		32E4C1071585C977005DB9CC /* LighthouseTests.h */ = {isa = PBXFileReference; path = LighthouseTests.h; sourceTree = "<group>"; };
+		32E4C1071585C977005DB9CC /* LighthouseTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LighthouseTests.h; sourceTree = "<group>"; };
 		32E4C1081585C978005DB9CC /* LighthouseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LighthouseTests.m; sourceTree = "<group>"; };
+		32E4C1161585CA3A005DB9CC /* Marker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Marker.h; sourceTree = "<group>"; };
+		32E4C1171585CA3A005DB9CC /* Marker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Marker.m; sourceTree = "<group>"; };
+		32E4C11A1585CA5E005DB9CC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		32E4C11B1585CA5E005DB9CC /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		32E4C11D1585CA8B005DB9CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		32E4C11F1585CA8F005DB9CC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		32E4C1211585CAFF005DB9CC /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32E4C1201585CA90005DB9CC /* CoreLocation.framework in Frameworks */,
+				32E4C11E1585CA8B005DB9CC /* MapKit.framework in Frameworks */,
 				32E4C0D51585C977005DB9CC /* UIKit.framework in Frameworks */,
 				32E4C0D71585C977005DB9CC /* Foundation.framework in Frameworks */,
 				32E4C0D91585C977005DB9CC /* CoreGraphics.framework in Frameworks */,
@@ -91,6 +103,8 @@
 		32E4C0C51585C977005DB9CC = {
 			isa = PBXGroup;
 			children = (
+				32E4C11F1585CA8F005DB9CC /* CoreLocation.framework */,
+				32E4C11D1585CA8B005DB9CC /* MapKit.framework */,
 				32E4C0DC1585C977005DB9CC /* Lighthouse */,
 				32E4C1011585C977005DB9CC /* LighthouseTests */,
 				32E4C0D31585C977005DB9CC /* Frameworks */,
@@ -122,14 +136,17 @@
 		32E4C0DC1585C977005DB9CC /* Lighthouse */ = {
 			isa = PBXGroup;
 			children = (
+				32E4C1211585CAFF005DB9CC /* MainStoryboard.storyboard */,
+				32E4C1191585CA4B005DB9CC /* Third Party */,
 				32E4C0E51585C977005DB9CC /* AppDelegate.h */,
 				32E4C0E61585C977005DB9CC /* AppDelegate.m */,
-				32E4C0E81585C977005DB9CC /* MainStoryboard.storyboard */,
 				32E4C0EE1585C977005DB9CC /* MasterViewController.h */,
 				32E4C0EF1585C977005DB9CC /* MasterViewController.m */,
 				32E4C0F11585C977005DB9CC /* DetailViewController.h */,
 				32E4C0F21585C977005DB9CC /* DetailViewController.m */,
 				32E4C0EB1585C977005DB9CC /* Lighthouse.xcdatamodeld */,
+				32E4C1161585CA3A005DB9CC /* Marker.h */,
+				32E4C1171585CA3A005DB9CC /* Marker.m */,
 				32E4C0DD1585C977005DB9CC /* Supporting Files */,
 			);
 			path = Lighthouse;
@@ -163,6 +180,15 @@
 				32E4C1041585C977005DB9CC /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		32E4C1191585CA4B005DB9CC /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				32E4C11A1585CA5E005DB9CC /* MBProgressHUD.h */,
+				32E4C11B1585CA5E005DB9CC /* MBProgressHUD.m */,
+			);
+			name = "Third Party";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,7 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32E4C0E11585C977005DB9CC /* InfoPlist.strings in Resources */,
-				32E4C0EA1585C977005DB9CC /* MainStoryboard.storyboard in Resources */,
+				32E4C1221585CB00005DB9CC /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +303,8 @@
 				32E4C0ED1585C977005DB9CC /* Lighthouse.xcdatamodeld in Sources */,
 				32E4C0F01585C977005DB9CC /* MasterViewController.m in Sources */,
 				32E4C0F31585C977005DB9CC /* DetailViewController.m in Sources */,
+				32E4C1181585CA3A005DB9CC /* Marker.m in Sources */,
+				32E4C11C1585CA5E005DB9CC /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,14 +333,6 @@
 				32E4C0E01585C977005DB9CC /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		32E4C0E81585C977005DB9CC /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				32E4C0E91585C977005DB9CC /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 		32E4C1041585C977005DB9CC /* InfoPlist.strings */ = {

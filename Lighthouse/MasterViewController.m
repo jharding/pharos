@@ -2,13 +2,20 @@
 //  MasterViewController.m
 //  Lighthouse
 //
-//  Created by Jacob Harding on 6/10/12.
+//  Created by Jacob Harding on 6/9/12.
 //  Copyright (c) 2012 University of Michigan. All rights reserved.
 //
 
 #import "MasterViewController.h"
 
 #import "DetailViewController.h"
+#import "MBProgressHUD.h"
+#import "Marker.h"
+
+#define TEXT_LABEL_WIDTH_IPHONE_PORTRAIT  269
+#define TEXT_LABEL_WIDTH_IPHONE_LANDSCAPE 420
+#define TEXT_LABEL_PADDING 20
+#define ADDRESS_FORMAT @"%@\n%@ %@"
 
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -18,6 +25,44 @@
 
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
+@synthesize addButton = _addButton;
+@synthesize locationManager = _locationManager;
+@synthesize geocoder = _geocoder;
+
+- (UIBarButtonItem *)addButton
+{
+    if (_addButton != nil) {
+        return _addButton;
+    }
+    
+    _addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+                                                               target:self action:@selector(insertNewObject:)];
+    
+    return _addButton;
+}
+
+- (CLLocationManager *)locationManager 
+{
+    if (_locationManager != nil) {
+        return _locationManager;
+    }
+    
+    _locationManager = [[CLLocationManager alloc] init];
+    _locationManager.delegate = self;
+    
+    return _locationManager;
+}
+
+- (CLGeocoder *)geocoder 
+{
+    if (_geocoder != nil) {
+        return _geocoder;
+    }
+    
+    _geocoder = [[CLGeocoder alloc] init];
+    
+    return _geocoder;
+}
 
 - (void)awakeFromNib
 {
@@ -27,42 +72,81 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+	self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    self.navigationItem.rightBarButtonItem = [self addButton];
+    self.addButton.enabled = NO;
+    
+    [[self locationManager] startUpdatingLocation];
 }
 
 - (void)viewDidUnload
 {
+    [[self locationManager] stopUpdatingLocation];
+    
+    [self setAddButton:nil];
+    [self setLocationManager:nil];
+    [self setGeocoder:nil];
+    
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return YES;
 }
 
 - (void)insertNewObject:(id)sender
 {
+    CLLocation *location = [[self locationManager] location];
+    if (!location) {
+        // TODO: need to handle this case
+    }
+    
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
+    // get the user's current location
+    CLLocationCoordinate2D coordinate = [location coordinate];
     
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error]) {
-         // Replace this implementation with code to handle the error appropriately.
-         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
+    // display HUD
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Triangulating location...";
+    
+    [[self geocoder] reverseGeocodeLocation:location completionHandler:
+     ^(NSArray *placemarks, NSError *error) 
+     {
+         // hide HUD
+         [MBProgressHUD hideHUDForView:self.view animated:YES];
+         
+         // set the timestamp and coordinate of location
+         Marker *marker = [NSEntityDescription insertNewObjectForEntityForName:[entity name] 
+                                                        inManagedObjectContext:context];
+         [marker setTimeStamp:[NSDate date]];
+         [marker setLatitude:[NSNumber numberWithDouble:coordinate.latitude]];
+         [marker setLongitude:[NSNumber numberWithDouble:coordinate.longitude]];
+         
+         // if placemark is available, set address
+         if ([placemarks count] > 0) {
+             CLPlacemark *placemark = [placemarks objectAtIndex:0];
+             
+             NSString *street = [NSString stringWithFormat:@"%@ %@", [placemark subThoroughfare],
+                                 [placemark thoroughfare]];
+             [marker setStreet:street];
+             [marker setCity:[placemark locality]];
+             [marker setState:[placemark administrativeArea]];
+         }
+         
+         // Save the context.
+         NSError *saveError = nil;
+         if (![context save:&saveError]) {
+             // Replace this implementation with code to handle the error appropriately.
+             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+             abort();
+         }
+     }];
 }
 
 #pragma mark - Table View
@@ -99,8 +183,8 @@
         
         NSError *error = nil;
         if (![context save:&error]) {
-             // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
@@ -132,7 +216,7 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Marker" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
@@ -152,8 +236,8 @@
     
 	NSError *error = nil;
 	if (![self.fetchedResultsController performFetch:&error]) {
-	     // Replace this implementation with code to handle the error appropriately.
-	     // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
 	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 	    abort();
 	}
@@ -211,20 +295,69 @@
     [self.tableView endUpdates];
 }
 
-/*
-// Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
- 
- - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // In the simplest, most efficient, case, reload the table view.
-    [self.tableView reloadData];
+    BOOL isPortrait = (UIDeviceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation));
+    
+    // get dimensions of largest possible label
+    CGFloat maxHeight = 9999;
+    CGFloat maxWidth = isPortrait ? TEXT_LABEL_WIDTH_IPHONE_PORTRAIT :
+    TEXT_LABEL_WIDTH_IPHONE_LANDSCAPE;
+    CGSize maxLabelSize = CGSizeMake(maxWidth, maxHeight);
+    
+    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    // construct address string and figure out its size
+    NSString *street = [object valueForKey:@"street"];
+    NSString *city = [object valueForKey:@"city"];
+    NSString *state = [object valueForKey:@"state"];
+    NSString *address = [NSString stringWithFormat:ADDRESS_FORMAT, street, city, state];
+    CGSize textLabelSize = [address sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18.0f]
+                               constrainedToSize:maxLabelSize lineBreakMode:UILineBreakModeWordWrap];
+    
+    // construct date string and figure out its size
+    NSDate *date = [object valueForKey:@"timeStamp"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+    NSString *dateString = [dateFormatter stringFromDate:date];
+    CGSize detailTextLabelSize = [dateString sizeWithFont:[UIFont fontWithName:@"Helvetica" 
+                                                                          size:14.0f] constrainedToSize:maxLabelSize 
+                                            lineBreakMode:UILineBreakModeWordWrap];
+    
+    return textLabelSize.height + detailTextLabelSize.height + 
+    TEXT_LABEL_PADDING;    
 }
- */
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
+    
+    // construct address string and set the text label's value accordingly
+    NSString *street = [object valueForKey:@"street"];
+    NSString *city = [object valueForKey:@"city"];
+    NSString *state = [object valueForKey:@"state"];
+    cell.textLabel.text = [NSString stringWithFormat:ADDRESS_FORMAT, street, city, state];
+    
+    // construct date string and set the detail text label's value accordingly
+    NSDate *date = [object valueForKey:@"timeStamp"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+    cell.detailTextLabel.text = [dateFormatter stringFromDate:date];
+}
+
+#pragma mark - Location Delegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation 
+           fromLocation:(CLLocation *)oldLocation
+{
+    self.addButton.enabled = YES;
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    self.addButton.enabled = NO;
 }
 
 @end

@@ -2,7 +2,7 @@
 //  DetailViewController.m
 //  Lighthouse
 //
-//  Created by Jacob Harding on 6/10/12.
+//  Created by Jacob Harding on 6/9/12.
 //  Copyright (c) 2012 University of Michigan. All rights reserved.
 //
 
@@ -14,8 +14,10 @@
 
 @implementation DetailViewController
 
+
 @synthesize detailItem = _detailItem;
-@synthesize detailDescriptionLabel = _detailDescriptionLabel;
+@synthesize mapView;
+@synthesize navigationItem;
 
 #pragma mark - Managing the detail item
 
@@ -32,24 +34,40 @@
 - (void)configureView
 {
     // Update the user interface for the detail item.
-
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"timeStamp"] description];
-    }
+    
+    NSString *street = [self.detailItem valueForKey:@"street"];
+    
+    self.navigationItem.title = street;
+    
+    CLLocationCoordinate2D coordinate;
+    coordinate.latitude = [[self.detailItem valueForKey:@"latitude"] doubleValue];
+    coordinate.longitude = [[self.detailItem valueForKey:@"longitude"] doubleValue];
+    
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    annotation.coordinate = coordinate;
+    annotation.title = street;
+    [self.mapView addAnnotation:annotation];
+    
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 1500, 1500);
+    [self.mapView setRegion:region];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.mapView.showsUserLocation = YES;
+    
     [self configureView];
 }
 
 - (void)viewDidUnload
 {
+    [self setMapView:nil];
+    [self setNavigationItem:nil];
+    
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    self.detailDescriptionLabel = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -57,4 +75,13 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (IBAction)openMapsApp:(id)sender {
+    double latitude = [[self.detailItem valueForKey:@"latitude"] doubleValue];
+    double longitude = [[self.detailItem valueForKey:@"longitude"] doubleValue];
+    
+    NSString *url = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=Current+Location&daddr=%f,%f", 
+                     latitude, longitude];
+    
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString: url]];
+}
 @end
