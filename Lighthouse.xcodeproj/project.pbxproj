@@ -137,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				32E4C1211585CAFF005DB9CC /* MainStoryboard.storyboard */,
-				32E4C1191585CA4B005DB9CC /* Third Party */,
 				32E4C0E51585C977005DB9CC /* AppDelegate.h */,
 				32E4C0E61585C977005DB9CC /* AppDelegate.m */,
 				32E4C0EE1585C977005DB9CC /* MasterViewController.h */,
@@ -147,6 +146,7 @@
 				32E4C0EB1585C977005DB9CC /* Lighthouse.xcdatamodeld */,
 				32E4C1161585CA3A005DB9CC /* Marker.h */,
 				32E4C1171585CA3A005DB9CC /* Marker.m */,
+				32E4C1191585CA4B005DB9CC /* Third Party */,
 				32E4C0DD1585C977005DB9CC /* Supporting Files */,
 			);
 			path = Lighthouse;
