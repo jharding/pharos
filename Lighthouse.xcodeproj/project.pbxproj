@@ -103,8 +103,6 @@
 		32E4C0C51585C977005DB9CC = {
 			isa = PBXGroup;
 			children = (
-				32E4C11F1585CA8F005DB9CC /* CoreLocation.framework */,
-				32E4C11D1585CA8B005DB9CC /* MapKit.framework */,
 				32E4C0DC1585C977005DB9CC /* Lighthouse */,
 				32E4C1011585C977005DB9CC /* LighthouseTests */,
 				32E4C0D31585C977005DB9CC /* Frameworks */,
@@ -124,6 +122,8 @@
 		32E4C0D31585C977005DB9CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				32E4C11F1585CA8F005DB9CC /* CoreLocation.framework */,
+				32E4C11D1585CA8B005DB9CC /* MapKit.framework */,
 				32E4C0D41585C977005DB9CC /* UIKit.framework */,
 				32E4C0D61585C977005DB9CC /* Foundation.framework */,
 				32E4C0D81585C977005DB9CC /* CoreGraphics.framework */,
@@ -466,6 +466,7 @@
 				32E4C10E1585C978005DB9CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		32E4C10F1585C978005DB9CC /* Build configuration list for PBXNativeTarget "LighthouseTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +475,7 @@
 				32E4C1111585C978005DB9CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
