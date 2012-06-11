@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		32E4C0D51585C977005DB9CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D41585C977005DB9CC /* UIKit.framework */; };
+		32E4C0D71585C977005DB9CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D61585C977005DB9CC /* Foundation.framework */; };
+		32E4C0D91585C977005DB9CC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D81585C977005DB9CC /* CoreGraphics.framework */; };
+		32E4C0DB1585C977005DB9CC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0DA1585C977005DB9CC /* CoreData.framework */; };
+		32E4C0E11585C977005DB9CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32E4C0DF1585C977005DB9CC /* InfoPlist.strings */; };
+		32E4C0E31585C977005DB9CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E4C0E21585C977005DB9CC /* main.m */; };
+		32E4C0E71585C977005DB9CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E4C0E61585C977005DB9CC /* AppDelegate.m */; };
+		32E4C0EA1585C977005DB9CC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E4C0E81585C977005DB9CC /* MainStoryboard.storyboard */; };
+		32E4C0ED1585C977005DB9CC /* Lighthouse.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32E4C0EB1585C977005DB9CC /* Lighthouse.xcdatamodeld */; };
+		32E4C0F01585C977005DB9CC /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E4C0EF1585C977005DB9CC /* MasterViewController.m */; };
+		32E4C0F31585C977005DB9CC /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E4C0F21585C977005DB9CC /* DetailViewController.m */; };
+		32E4C0FB1585C977005DB9CC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0FA1585C977005DB9CC /* SenTestingKit.framework */; };
+		32E4C0FC1585C977005DB9CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D41585C977005DB9CC /* UIKit.framework */; };
+		32E4C0FD1585C977005DB9CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D61585C977005DB9CC /* Foundation.framework */; };
+		32E4C0FE1585C977005DB9CC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0DA1585C977005DB9CC /* CoreData.framework */; };
+		32E4C1061585C977005DB9CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32E4C1041585C977005DB9CC /* InfoPlist.strings */; };
+		32E4C1091585C978005DB9CC /* LighthouseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E4C1081585C978005DB9CC /* LighthouseTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		32E4C0FF1585C977005DB9CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32E4C0C71585C977005DB9CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32E4C0CF1585C977005DB9CC;
+			remoteInfo = Lighthouse;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		32E4C0D01585C977005DB9CC /* Lighthouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lighthouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		32E4C0D41585C977005DB9CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		32E4C0D61585C977005DB9CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		32E4C0D81585C977005DB9CC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		32E4C0DA1585C977005DB9CC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		32E4C0DE1585C977005DB9CC /* Lighthouse-Info.plist */ = {isa = PBXFileReference; path = "Lighthouse-Info.plist"; sourceTree = "<group>"; };
+		32E4C0E01585C977005DB9CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		32E4C0E21585C977005DB9CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32E4C0E41585C977005DB9CC /* Lighthouse-Prefix.pch */ = {isa = PBXFileReference; path = "Lighthouse-Prefix.pch"; sourceTree = "<group>"; };
+		32E4C0E51585C977005DB9CC /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		32E4C0E61585C977005DB9CC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		32E4C0E91585C977005DB9CC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		32E4C0EC1585C977005DB9CC /* Lighthouse.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lighthouse.xcdatamodel; sourceTree = "<group>"; };
+		32E4C0EE1585C977005DB9CC /* MasterViewController.h */ = {isa = PBXFileReference; path = MasterViewController.h; sourceTree = "<group>"; };
+		32E4C0EF1585C977005DB9CC /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		32E4C0F11585C977005DB9CC /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
+		32E4C0F21585C977005DB9CC /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		32E4C0F91585C977005DB9CC /* LighthouseTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LighthouseTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		32E4C0FA1585C977005DB9CC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		32E4C1031585C977005DB9CC /* LighthouseTests-Info.plist */ = {isa = PBXFileReference; path = "LighthouseTests-Info.plist"; sourceTree = "<group>"; };
+		32E4C1051585C977005DB9CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		32E4C1071585C977005DB9CC /* LighthouseTests.h */ = {isa = PBXFileReference; path = LighthouseTests.h; sourceTree = "<group>"; };
+		32E4C1081585C978005DB9CC /* LighthouseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LighthouseTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		32E4C0CD1585C977005DB9CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32E4C0D51585C977005DB9CC /* UIKit.framework in Frameworks */,
+				32E4C0D71585C977005DB9CC /* Foundation.framework in Frameworks */,
+				32E4C0D91585C977005DB9CC /* CoreGraphics.framework in Frameworks */,
+				32E4C0DB1585C977005DB9CC /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32E4C0F51585C977005DB9CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32E4C0FB1585C977005DB9CC /* SenTestingKit.framework in Frameworks */,
+				32E4C0FC1585C977005DB9CC /* UIKit.framework in Frameworks */,
+				32E4C0FD1585C977005DB9CC /* Foundation.framework in Frameworks */,
+				32E4C0FE1585C977005DB9CC /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		32E4C0C51585C977005DB9CC = {
+			isa = PBXGroup;
+			children = (
+				32E4C0DC1585C977005DB9CC /* Lighthouse */,
+				32E4C1011585C977005DB9CC /* LighthouseTests */,
+				32E4C0D31585C977005DB9CC /* Frameworks */,
+				32E4C0D11585C977005DB9CC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		32E4C0D11585C977005DB9CC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32E4C0D01585C977005DB9CC /* Lighthouse.app */,
+				32E4C0F91585C977005DB9CC /* LighthouseTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32E4C0D31585C977005DB9CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32E4C0D41585C977005DB9CC /* UIKit.framework */,
+				32E4C0D61585C977005DB9CC /* Foundation.framework */,
+				32E4C0D81585C977005DB9CC /* CoreGraphics.framework */,
+				32E4C0DA1585C977005DB9CC /* CoreData.framework */,
+				32E4C0FA1585C977005DB9CC /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		32E4C0DC1585C977005DB9CC /* Lighthouse */ = {
+			isa = PBXGroup;
+			children = (
+				32E4C0E51585C977005DB9CC /* AppDelegate.h */,
+				32E4C0E61585C977005DB9CC /* AppDelegate.m */,
+				32E4C0E81585C977005DB9CC /* MainStoryboard.storyboard */,
+				32E4C0EE1585C977005DB9CC /* MasterViewController.h */,
+				32E4C0EF1585C977005DB9CC /* MasterViewController.m */,
+				32E4C0F11585C977005DB9CC /* DetailViewController.h */,
+				32E4C0F21585C977005DB9CC /* DetailViewController.m */,
+				32E4C0EB1585C977005DB9CC /* Lighthouse.xcdatamodeld */,
+				32E4C0DD1585C977005DB9CC /* Supporting Files */,
+			);
+			path = Lighthouse;
+			sourceTree = "<group>";
+		};
+		32E4C0DD1585C977005DB9CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				32E4C0DE1585C977005DB9CC /* Lighthouse-Info.plist */,
+				32E4C0DF1585C977005DB9CC /* InfoPlist.strings */,
+				32E4C0E21585C977005DB9CC /* main.m */,
+				32E4C0E41585C977005DB9CC /* Lighthouse-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		32E4C1011585C977005DB9CC /* LighthouseTests */ = {
+			isa = PBXGroup;
+			children = (
+				32E4C1071585C977005DB9CC /* LighthouseTests.h */,
+				32E4C1081585C978005DB9CC /* LighthouseTests.m */,
+				32E4C1021585C977005DB9CC /* Supporting Files */,
+			);
+			path = LighthouseTests;
+			sourceTree = "<group>";
+		};
+		32E4C1021585C977005DB9CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				32E4C1031585C977005DB9CC /* LighthouseTests-Info.plist */,
+				32E4C1041585C977005DB9CC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		32E4C0CF1585C977005DB9CC /* Lighthouse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32E4C10C1585C978005DB9CC /* Build configuration list for PBXNativeTarget "Lighthouse" */;
+			buildPhases = (
+				32E4C0CC1585C977005DB9CC /* Sources */,
+				32E4C0CD1585C977005DB9CC /* Frameworks */,
+				32E4C0CE1585C977005DB9CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Lighthouse;
+			productName = Lighthouse;
+			productReference = 32E4C0D01585C977005DB9CC /* Lighthouse.app */;
+			productType = "com.apple.product-type.application";
+		};
+		32E4C0F81585C977005DB9CC /* LighthouseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32E4C10F1585C978005DB9CC /* Build configuration list for PBXNativeTarget "LighthouseTests" */;
+			buildPhases = (
+				32E4C0F41585C977005DB9CC /* Sources */,
+				32E4C0F51585C977005DB9CC /* Frameworks */,
+				32E4C0F61585C977005DB9CC /* Resources */,
+				32E4C0F71585C977005DB9CC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32E4C1001585C977005DB9CC /* PBXTargetDependency */,
+			);
+			name = LighthouseTests;
+			productName = LighthouseTests;
+			productReference = 32E4C0F91585C977005DB9CC /* LighthouseTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		32E4C0C71585C977005DB9CC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "University of Michigan";
+			};
+			buildConfigurationList = 32E4C0CA1585C977005DB9CC /* Build configuration list for PBXProject "Lighthouse" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 32E4C0C51585C977005DB9CC;
+			productRefGroup = 32E4C0D11585C977005DB9CC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				32E4C0CF1585C977005DB9CC /* Lighthouse */,
+				32E4C0F81585C977005DB9CC /* LighthouseTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		32E4C0CE1585C977005DB9CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32E4C0E11585C977005DB9CC /* InfoPlist.strings in Resources */,
+				32E4C0EA1585C977005DB9CC /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32E4C0F61585C977005DB9CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32E4C1061585C977005DB9CC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		32E4C0F71585C977005DB9CC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		32E4C0CC1585C977005DB9CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32E4C0E31585C977005DB9CC /* main.m in Sources */,
+				32E4C0E71585C977005DB9CC /* AppDelegate.m in Sources */,
+				32E4C0ED1585C977005DB9CC /* Lighthouse.xcdatamodeld in Sources */,
+				32E4C0F01585C977005DB9CC /* MasterViewController.m in Sources */,
+				32E4C0F31585C977005DB9CC /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32E4C0F41585C977005DB9CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32E4C1091585C978005DB9CC /* LighthouseTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		32E4C1001585C977005DB9CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32E4C0CF1585C977005DB9CC /* Lighthouse */;
+			targetProxy = 32E4C0FF1585C977005DB9CC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		32E4C0DF1585C977005DB9CC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32E4C0E01585C977005DB9CC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		32E4C0E81585C977005DB9CC /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32E4C0E91585C977005DB9CC /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		32E4C1041585C977005DB9CC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32E4C1051585C977005DB9CC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		32E4C10A1585C978005DB9CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		32E4C10B1585C978005DB9CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		32E4C10D1585C978005DB9CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Lighthouse/Lighthouse-Prefix.pch";
+				INFOPLIST_FILE = "Lighthouse/Lighthouse-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		32E4C10E1585C978005DB9CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Lighthouse/Lighthouse-Prefix.pch";
+				INFOPLIST_FILE = "Lighthouse/Lighthouse-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		32E4C1101585C978005DB9CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Lighthouse.app/Lighthouse";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Lighthouse/Lighthouse-Prefix.pch";
+				INFOPLIST_FILE = "LighthouseTests/LighthouseTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		32E4C1111585C978005DB9CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Lighthouse.app/Lighthouse";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Lighthouse/Lighthouse-Prefix.pch";
+				INFOPLIST_FILE = "LighthouseTests/LighthouseTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		32E4C0CA1585C977005DB9CC /* Build configuration list for PBXProject "Lighthouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32E4C10A1585C978005DB9CC /* Debug */,
+				32E4C10B1585C978005DB9CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32E4C10C1585C978005DB9CC /* Build configuration list for PBXNativeTarget "Lighthouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32E4C10D1585C978005DB9CC /* Debug */,
+				32E4C10E1585C978005DB9CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		32E4C10F1585C978005DB9CC /* Build configuration list for PBXNativeTarget "LighthouseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32E4C1101585C978005DB9CC /* Debug */,
+				32E4C1111585C978005DB9CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		32E4C0EB1585C977005DB9CC /* Lighthouse.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				32E4C0EC1585C977005DB9CC /* Lighthouse.xcdatamodel */,
+			);
+			currentVersion = 32E4C0EC1585C977005DB9CC /* Lighthouse.xcdatamodel */;
+			path = Lighthouse.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 32E4C0C71585C977005DB9CC /* Project object */;
+}
