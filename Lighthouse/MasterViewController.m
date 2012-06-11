@@ -15,7 +15,7 @@
 #define TEXT_LABEL_WIDTH_IPHONE_PORTRAIT  269
 #define TEXT_LABEL_WIDTH_IPHONE_LANDSCAPE 420
 #define TEXT_LABEL_PADDING 20
-#define ADDRESS_FORMAT @"%@\n%@ %@"
+#define ADDRESS_FORMAT @"%@\n%@, %@"
 
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
