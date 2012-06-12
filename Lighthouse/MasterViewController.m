@@ -112,7 +112,7 @@
     
     // display HUD
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Triangulating location...";
+    hud.labelText = @"Building new lighthouse...";
     
     [[self geocoder] reverseGeocodeLocation:location completionHandler:
      ^(NSArray *placemarks, NSError *error) 
