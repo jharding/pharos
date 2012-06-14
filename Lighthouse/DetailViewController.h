@@ -16,5 +16,5 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 
-- (IBAction)openMapsApp:(id)sender;
+- (IBAction)openMapsAppForDirections:(id)sender;
 @end

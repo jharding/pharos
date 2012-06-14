@@ -127,12 +127,17 @@
     return circleView;
 }
 
-- (IBAction)openMapsApp:(id)sender {
-    double latitude = [[self.detailItem valueForKey:@"latitude"] doubleValue];
-    double longitude = [[self.detailItem valueForKey:@"longitude"] doubleValue];
+- (IBAction)openMapsAppForDirections:(id)sender {
+    CLLocationCoordinate2D startCoordinate = self.mapView.userLocation.location.coordinate;
+    double startLatitude = startCoordinate.latitude;
+    double startLongitude = startCoordinate.longitude;
     
-    NSString *url = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=Current+Location&daddr=%f,%f", 
-                     latitude, longitude];
+    double destinationLatitude = [[self.detailItem valueForKey:@"latitude"] doubleValue];
+    double destinationLongitude = [[self.detailItem valueForKey:@"longitude"] doubleValue];
+    
+    NSString *mapsUrlFormat = @"http://maps.google.com/maps?saddr=%f,%f&daddr=%f,%f";
+    NSString *url = [NSString stringWithFormat:mapsUrlFormat, startLatitude, startLongitude,
+                    destinationLatitude, destinationLongitude];
     
     [[UIApplication sharedApplication] openURL: [NSURL URLWithString: url]];
 }
