@@ -17,4 +17,5 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 
 - (IBAction)openMapsAppForDirections:(id)sender;
+- (IBAction)tweetLocation:(id)sender;
 @end

@@ -8,6 +8,8 @@
 
 #import "DetailViewController.h"
 
+#import <Twitter/Twitter.h>
+
 #define OVERLAY_OPACITY 0.3
 #define OVERLAY_STROKE_WIDTH 5
 
@@ -127,7 +129,8 @@
     return circleView;
 }
 
-- (IBAction)openMapsAppForDirections:(id)sender {
+- (IBAction)openMapsAppForDirections:(id)sender 
+{
     CLLocationCoordinate2D startCoordinate = self.mapView.userLocation.location.coordinate;
     double startLatitude = startCoordinate.latitude;
     double startLongitude = startCoordinate.longitude;
@@ -141,4 +144,22 @@
     
     [[UIApplication sharedApplication] openURL: [NSURL URLWithString: url]];
 }
+
+- (IBAction)tweetLocation:(id)sender 
+{
+    double latitude = [[self.detailItem valueForKey:@"latitude"] doubleValue];
+    double longitude = [[self.detailItem valueForKey:@"longitude"] doubleValue];
+    
+    NSString *mapsUrlFormat = @"http://maps.google.com/maps?q=%f,%f";
+    NSString *url = [NSString stringWithFormat:mapsUrlFormat, latitude, longitude];
+    
+    TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
+    [twitter addURL:[NSURL URLWithString:url]];
+    
+    
+    [twitter setInitialText:NSLocalizedString(@"boilerplateTweet", nil)];
+    
+    [self presentModalViewController:twitter animated:YES];
+}
+
 @end

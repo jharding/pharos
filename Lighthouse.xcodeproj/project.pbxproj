@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		32095EF31589AC040017398D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32095EF21589AC040017398D /* Localizable.strings */; };
+		32095EFA1589D7010017398D /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32095EF91589D7010017398D /* Twitter.framework */; };
 		32703C21158980F00083DC34 /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 32703C20158980F00083DC34 /* flag.png */; };
 		32E4C0D51585C977005DB9CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D41585C977005DB9CC /* UIKit.framework */; };
 		32E4C0D71585C977005DB9CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D61585C977005DB9CC /* Foundation.framework */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		32095EF21589AC040017398D /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		32095EF91589D7010017398D /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		32703C20158980F00083DC34 /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flag.png; path = images/flag.png; sourceTree = "<group>"; };
 		32E4C0D01585C977005DB9CC /* Lighthouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lighthouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E4C0D41585C977005DB9CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -81,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32095EFA1589D7010017398D /* Twitter.framework in Frameworks */,
 				32E4C1201585CA90005DB9CC /* CoreLocation.framework in Frameworks */,
 				32E4C11E1585CA8B005DB9CC /* MapKit.framework in Frameworks */,
 				32E4C0D51585C977005DB9CC /* UIKit.framework in Frameworks */,
@@ -116,6 +119,7 @@
 		32E4C0C51585C977005DB9CC = {
 			isa = PBXGroup;
 			children = (
+				32095EF91589D7010017398D /* Twitter.framework */,
 				32E4C0DC1585C977005DB9CC /* Lighthouse */,
 				32E4C1011585C977005DB9CC /* LighthouseTests */,
 				32E4C0D31585C977005DB9CC /* Frameworks */,

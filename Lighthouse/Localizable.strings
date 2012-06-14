@@ -15,3 +15,6 @@
 // alert for inaccurate location
 "inaccurateLocationAlertTitle" = "Hey!";
 "inaccurateLocationAlertMessage" = "The accuracy of the location that was just saved might be a little off. If you need high accuracy, you should try and save this location again.";
+
+// boilerplate text for tweet
+"boilerplateTweet" = "#lighthouse";
