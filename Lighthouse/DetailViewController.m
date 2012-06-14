@@ -8,6 +8,9 @@
 
 #import "DetailViewController.h"
 
+#define OVERLAY_OPACITY 0.3
+#define OVERLAY_STROKE_WIDTH 5
+
 @interface DetailViewController ()
 - (void)configureView;
 @end
@@ -114,8 +117,9 @@
 -(MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay
 {
     MKCircleView *circleView = [[MKCircleView alloc] initWithOverlay:overlay];
+    circleView.lineWidth = OVERLAY_STROKE_WIDTH;
     circleView.strokeColor = [UIColor yellowColor];
-    circleView.fillColor = [[UIColor yellowColor] colorWithAlphaComponent:0.4];
+    circleView.fillColor = [[UIColor yellowColor] colorWithAlphaComponent:OVERLAY_OPACITY];
     
     return circleView;
 }
