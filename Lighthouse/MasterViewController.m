@@ -86,11 +86,13 @@
     self.addButton.enabled = NO;
     
     [[self locationManager] startUpdatingLocation];
+    NSLog(@"locationManager started");
 }
 
 - (void)viewDidUnload
 {
     [[self locationManager] stopUpdatingLocation];
+    NSLog(@"locationManager stopped");
     
     [self setAddButton:nil];
     [self setLocationManager:nil];
@@ -124,6 +126,8 @@
     // try again in a couple of seconds if we haven't reached the attempt limit
     if (isBadLocation && retriesLeft > 0) {
         retriesLeft--;
+        
+        NSLog(@"Retrying to retrieve location, %d tries left", retriesLeft);
         [NSTimer scheduledTimerWithTimeInterval:SECONDS_BETWEEN_ATTEMPTS target:self 
         selector:@selector(retrieveCurrentLocation) userInfo:nil repeats:NO];
         
@@ -133,6 +137,7 @@
     // ran out of attempts and still have no location, have nothing 
     // to save so hide hud and return
     if (!location) {
+        NSLog(@"Failed to retrieve location");
         [self showAlertViewWithTitle:NSLocalizedString(@"noLocationAlertTitle", nil) 
         message:NSLocalizedString(@"noLocationAlertMessage", nil)];
         
@@ -142,6 +147,7 @@
     
     // ran out of attempts and still have inaccurate location
     else if (location.horizontalAccuracy > kCLLocationAccuracyNearestTenMeters) {
+        NSLog(@"Retrieved inaccurate location");
         [self showAlertViewWithTitle:NSLocalizedString(@"inaccurateLocationAlertTitle", nil) 
         message:NSLocalizedString(@"inaccurateLocationAlertMessage", nil)];
     }
@@ -158,6 +164,7 @@
     // get the user's current location
     CLLocationCoordinate2D coordinate = [location coordinate];
     
+    NSLog(@"Attempting to reverse geocode %f, %f", coordinate.latitude, coordinate.longitude);
     [[self geocoder] reverseGeocodeLocation:location completionHandler:
      ^(NSArray *placemarks, NSError *error) 
      {
@@ -182,7 +189,13 @@
              [marker setState:[placemark administrativeArea]];
          }
          
-         // Save the context.
+         else {
+             // TODO: no placemarks
+         }
+         
+         
+         // save context
+         NSLog(@"Saving location");
          NSError *saveError = nil;
          if (![context save:&saveError]) {
              // Replace this implementation with code to handle the error appropriately.
@@ -401,6 +414,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
+    NSLog(@"locationManager failed. Error: %@", error);
     self.addButton.enabled = NO;
 }
 

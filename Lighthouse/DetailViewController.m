@@ -131,6 +131,8 @@
 
 - (IBAction)openMapsAppForDirections:(id)sender 
 {
+    NSLog(@"Opening Maps app for directions");
+    
     CLLocationCoordinate2D startCoordinate = self.mapView.userLocation.location.coordinate;
     double startLatitude = startCoordinate.latitude;
     double startLongitude = startCoordinate.longitude;
@@ -147,6 +149,8 @@
 
 - (IBAction)tweetLocation:(id)sender 
 {
+    NSLog(@"Prompting user with Twitter interface");
+    
     double latitude = [[self.detailItem valueForKey:@"latitude"] doubleValue];
     double longitude = [[self.detailItem valueForKey:@"longitude"] doubleValue];
     
