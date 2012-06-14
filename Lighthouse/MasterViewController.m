@@ -103,12 +103,13 @@
 {
     CLLocation *location = [[self locationManager] location];
     if (!location) {
-        [self displayAlertViewWithTitle:@"Error" 
-              message:@"Lighthouse was unable to retrieve your location."];
+        [self displayAlertViewWithTitle:NSLocalizedString(@"noLocationAlertTitle", nil) 
+        message:NSLocalizedString(@"noLocationAlertMessage", nil)];
     }
     
-    else if (location.horizontalAccuracy > kCLLocationAccuracyNearestTenMeters) {
-        [self displayAlertViewWithTitle:@"Warning" message:@"Accuracy is low."];
+    else if (location.horizontalAccuracy < kCLLocationAccuracyNearestTenMeters) {
+        [self displayAlertViewWithTitle:NSLocalizedString(@"inaccurateLocationAlertTitle", nil) 
+        message:NSLocalizedString(@"inaccurateLocationAlertMessage", nil)];
     }
     
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
@@ -119,7 +120,7 @@
     
     // display HUD
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Building new lighthouse...";
+    hud.labelText = NSLocalizedString(@"savingNewLocation", nil);
     
     [[self geocoder] reverseGeocodeLocation:location completionHandler:
      ^(NSArray *placemarks, NSError *error) 
