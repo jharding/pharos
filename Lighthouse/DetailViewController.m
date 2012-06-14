@@ -51,9 +51,12 @@
     annotation.title = street;
     [self.mapView addAnnotation:annotation];
     
+    // only show accuracy overlay if accuracy isn't within 10 meters
     CLLocationDistance accuracy = [[self.detailItem valueForKey:@"accuracy"] doubleValue];
-    MKCircle *circle = [MKCircle circleWithCenterCoordinate:coordinate radius:accuracy];
-    [self.mapView addOverlay:circle];
+    if (accuracy > kCLLocationAccuracyNearestTenMeters) {
+        MKCircle *circle = [MKCircle circleWithCenterCoordinate:coordinate radius:accuracy];
+        [self.mapView addOverlay:circle];
+    }
     
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 1500, 1500);
     [self.mapView setRegion:region];
