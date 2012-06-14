@@ -11,7 +11,13 @@
 #import <CoreData/CoreData.h>
 #import <CoreLocation/CoreLocation.h>
 
+@class MBProgressHUD;
+
 @interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate, CLLocationManagerDelegate> 
+{
+    int retriesLeft;
+    MBProgressHUD *hud;
+}
 
 // core data
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;

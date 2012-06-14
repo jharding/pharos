@@ -15,11 +15,16 @@
 #define TEXT_LABEL_WIDTH_IPHONE_PORTRAIT  269
 #define TEXT_LABEL_WIDTH_IPHONE_LANDSCAPE 420
 #define TEXT_LABEL_PADDING 20
+#define MAX_NUM_OF_RETRIES 3
+#define SECONDS_BETWEEN_ATTEMPTS 2
 #define ADDRESS_FORMAT @"%@\n%@, %@"
 
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
-- (void)displayAlertViewWithTitle:(NSString *)title message:(NSString *)message;
+
+- (void)showHUD;
+- (void)hideHUD;
+- (void)showAlertViewWithTitle:(NSString *)title message:(NSString *)message;
 @end
 
 @implementation MasterViewController
@@ -99,34 +104,57 @@
     return YES;
 }
 
-- (void)insertNewObject:(id)sender
+- (void)retrieveCurrentLocation
 {
+    [self showHUD];
+    
     CLLocation *location = [[self locationManager] location];
-    if (!location) {
-        [self displayAlertViewWithTitle:NSLocalizedString(@"noLocationAlertTitle", nil) 
-        message:NSLocalizedString(@"noLocationAlertMessage", nil)];
+    
+    // bad location if we got no location or bad accuracy
+    BOOL isBadLocation = !location || 
+                         location.horizontalAccuracy > kCLLocationAccuracyNearestTenMeters;
+    
+    // try again in a couple of seconds if we haven't reached the attempt limit
+    if (isBadLocation && retriesLeft > 0) {
+        retriesLeft--;
+        [NSTimer scheduledTimerWithTimeInterval:SECONDS_BETWEEN_ATTEMPTS target:self 
+        selector:@selector(CurrentLocation) userInfo:nil repeats:NO];
+        
+        return;
     }
     
-    else if (location.horizontalAccuracy < kCLLocationAccuracyNearestTenMeters) {
-        [self displayAlertViewWithTitle:NSLocalizedString(@"inaccurateLocationAlertTitle", nil) 
+    // ran out of attempts and still have no location, have nothing 
+    // to save so hide hud and return
+    if (!location) {
+        [self showAlertViewWithTitle:NSLocalizedString(@"noLocationAlertTitle", nil) 
+        message:NSLocalizedString(@"noLocationAlertMessage", nil)];
+        
+        [self hideHUD];
+        return;
+    }
+    
+    // ran out of attempts and still have inaccurate location
+    else if (location.horizontalAccuracy > kCLLocationAccuracyNearestTenMeters) {
+        [self showAlertViewWithTitle:NSLocalizedString(@"inaccurateLocationAlertTitle", nil) 
         message:NSLocalizedString(@"inaccurateLocationAlertMessage", nil)];
     }
     
+    // saveLocation will hide the HUD
+    [self saveLocation:location];
+}
+
+- (void)saveLocation:(CLLocation *)location
+{
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     
     // get the user's current location
     CLLocationCoordinate2D coordinate = [location coordinate];
     
-    // display HUD
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = NSLocalizedString(@"savingNewLocation", nil);
-    
     [[self geocoder] reverseGeocodeLocation:location completionHandler:
      ^(NSArray *placemarks, NSError *error) 
      {
-         // hide HUD
-         [MBProgressHUD hideHUDForView:self.view animated:YES];
+         [self hideHUD];
          
          // set the timestamp and coordinate of location
          Marker *marker = [NSEntityDescription insertNewObjectForEntityForName:[entity name] 
@@ -141,7 +169,7 @@
              CLPlacemark *placemark = [placemarks objectAtIndex:0];
              
              NSString *street = [NSString stringWithFormat:@"%@ %@", [placemark subThoroughfare],
-                                 [placemark thoroughfare]];
+                                [placemark thoroughfare]];
              [marker setStreet:street];
              [marker setCity:[placemark locality]];
              [marker setState:[placemark administrativeArea]];
@@ -156,6 +184,12 @@
              abort();
          }
      }];
+}
+
+- (void)insertNewObject:(id)sender
+{
+    retriesLeft = MAX_NUM_OF_RETRIES;
+    [self retrieveCurrentLocation];
 }
 
 #pragma mark - Table View
@@ -369,7 +403,29 @@
     self.addButton.enabled = NO;
 }
 
-- (void)displayAlertViewWithTitle:(NSString *)title message:(NSString *)message
+#pragma mark - UI Helpers
+
+- (void)showHUD
+{
+    if (hud != nil) {
+        return;
+    }
+    
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = NSLocalizedString(@"savingNewLocation", nil);
+}
+
+- (void)hideHUD
+{
+    if (hud == nil) {
+        return;
+    }
+    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    hud = nil;
+}
+
+- (void)showAlertViewWithTitle:(NSString *)title message:(NSString *)message
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message 
                              delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
