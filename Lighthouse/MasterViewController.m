@@ -118,7 +118,7 @@
     if (isBadLocation && retriesLeft > 0) {
         retriesLeft--;
         [NSTimer scheduledTimerWithTimeInterval:SECONDS_BETWEEN_ATTEMPTS target:self 
-        selector:@selector(CurrentLocation) userInfo:nil repeats:NO];
+        selector:@selector(retrieveCurrentLocation) userInfo:nil repeats:NO];
         
         return;
     }
