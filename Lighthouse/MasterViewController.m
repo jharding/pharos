@@ -19,6 +19,7 @@
 
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)displayAlertViewWithTitle:(NSString *)title message:(NSString *)message;
 @end
 
 @implementation MasterViewController
@@ -36,7 +37,7 @@
     }
     
     _addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
-                                                               target:self action:@selector(insertNewObject:)];
+                 target:self action:@selector(insertNewObject:)];
     
     return _addButton;
 }
@@ -102,7 +103,12 @@
 {
     CLLocation *location = [[self locationManager] location];
     if (!location) {
-        // TODO: need to handle this case
+        [self displayAlertViewWithTitle:@"Error" 
+              message:@"Lighthouse was unable to retrieve your location."];
+    }
+    
+    else if (location.horizontalAccuracy > kCLLocationAccuracyNearestTenMeters) {
+        [self displayAlertViewWithTitle:@"Warning" message:@"Accuracy is low."];
     }
     
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
@@ -360,6 +366,14 @@
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     self.addButton.enabled = NO;
+}
+
+- (void)displayAlertViewWithTitle:(NSString *)title message:(NSString *)message
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message 
+                             delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    
+    [alertView show];
 }
 
 @end
