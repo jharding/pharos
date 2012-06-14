@@ -42,7 +42,7 @@
     }
     
     _addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
-                 target:self action:@selector(insertNewObject:)];
+                 target:self action:@selector(addCurrentLocation:)];
     
     return _addButton;
 }
@@ -102,6 +102,13 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
+}
+
+- (void)addCurrentLocation:(id)sender
+{
+    NSLog(@"User attempting to save current location");
+    retriesLeft = MAX_NUM_OF_RETRIES;
+    [self retrieveCurrentLocation];
 }
 
 - (void)retrieveCurrentLocation
@@ -184,12 +191,6 @@
              abort();
          }
      }];
-}
-
-- (void)insertNewObject:(id)sender
-{
-    retriesLeft = MAX_NUM_OF_RETRIES;
-    [self retrieveCurrentLocation];
 }
 
 #pragma mark - Table View
