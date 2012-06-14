@@ -48,6 +48,10 @@
     annotation.title = street;
     [self.mapView addAnnotation:annotation];
     
+    CLLocationDistance accuracy = [[self.detailItem valueForKey:@"accuracy"] doubleValue];
+    MKCircle *circle = [MKCircle circleWithCenterCoordinate:coordinate radius:accuracy];
+    [self.mapView addOverlay:circle];
+    
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 1500, 1500);
     [self.mapView setRegion:region];
 }
@@ -105,6 +109,15 @@
     annotationView.image = annotationImage;
     
     return annotationView;
+}
+
+-(MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay
+{
+    MKCircleView *circleView = [[MKCircleView alloc] initWithOverlay:overlay];
+    circleView.strokeColor = [UIColor yellowColor];
+    circleView.fillColor = [[UIColor yellowColor] colorWithAlphaComponent:0.4];
+    
+    return circleView;
 }
 
 - (IBAction)openMapsApp:(id)sender {

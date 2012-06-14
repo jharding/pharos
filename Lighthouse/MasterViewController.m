@@ -126,6 +126,7 @@
          [marker setTimeStamp:[NSDate date]];
          [marker setLatitude:[NSNumber numberWithDouble:coordinate.latitude]];
          [marker setLongitude:[NSNumber numberWithDouble:coordinate.longitude]];
+         [marker setAccuracy:[NSNumber numberWithDouble:location.horizontalAccuracy]];
          
          // if placemark is available, set address
          if ([placemarks count] > 0) {

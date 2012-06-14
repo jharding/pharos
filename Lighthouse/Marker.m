@@ -17,5 +17,6 @@
 @dynamic state;
 @dynamic latitude;
 @dynamic longitude;
+@dynamic accuracy;
 
 @end
