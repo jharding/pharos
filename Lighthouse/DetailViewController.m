@@ -16,7 +16,7 @@
 
 
 @synthesize detailItem = _detailItem;
-@synthesize mapView;
+@synthesize mapView = _mapView;
 @synthesize navigationItem;
 
 #pragma mark - Managing the detail item
@@ -73,6 +73,38 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    // static identifier so annotation views can be reused
+    static NSString *identifier = @"LighthouseAnnotationIdentifier";
+    
+    // annotation is for the user's location
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
+    }
+    
+    // reuse annotation view if possible
+    MKPinAnnotationView *annotationView = (MKPinAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+    
+    // an annotation view isn't available so init a newone
+    if (annotationView == nil) {
+        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation 
+                         reuseIdentifier:identifier];
+    } 
+    
+    else {
+        annotationView.annotation = annotation;
+    }
+    
+    UIImage *annotationImage = [UIImage imageNamed:@"flag.png"];
+    
+    annotationView.enabled = YES;
+    annotationView.canShowCallout = YES;
+    annotationView.image = annotationImage;
+    
+    return annotationView;
 }
 
 - (IBAction)openMapsApp:(id)sender {
