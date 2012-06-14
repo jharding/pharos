@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32703C21158980F00083DC34 /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 32703C20158980F00083DC34 /* flag.png */; };
 		32E4C0D51585C977005DB9CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D41585C977005DB9CC /* UIKit.framework */; };
 		32E4C0D71585C977005DB9CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D61585C977005DB9CC /* Foundation.framework */; };
 		32E4C0D91585C977005DB9CC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D81585C977005DB9CC /* CoreGraphics.framework */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32703C20158980F00083DC34 /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flag.png; path = images/flag.png; sourceTree = "<group>"; };
 		32E4C0D01585C977005DB9CC /* Lighthouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lighthouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E4C0D41585C977005DB9CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		32E4C0D61585C977005DB9CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -100,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32703C23158981140083DC34 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				32703C20158980F00083DC34 /* flag.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		32E4C0C51585C977005DB9CC = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +156,7 @@
 				32E4C0EB1585C977005DB9CC /* Lighthouse.xcdatamodeld */,
 				32E4C1161585CA3A005DB9CC /* Marker.h */,
 				32E4C1171585CA3A005DB9CC /* Marker.m */,
+				32703C23158981140083DC34 /* Images */,
 				32E4C1191585CA4B005DB9CC /* Third Party */,
 				32E4C0DD1585C977005DB9CC /* Supporting Files */,
 			);
@@ -264,6 +275,7 @@
 			files = (
 				32E4C0E11585C977005DB9CC /* InfoPlist.strings in Resources */,
 				32E4C1221585CB00005DB9CC /* MainStoryboard.storyboard in Resources */,
+				32703C21158980F00083DC34 /* flag.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
