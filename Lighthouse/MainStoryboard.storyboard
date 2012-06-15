@@ -94,7 +94,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="vms-vS-VAl"/>
-                                    <barButtonItem title="Get Directions" id="1BO-Kb-hEu">
+                                    <barButtonItem title="Show The Way" id="1BO-Kb-hEu">
                                         <connections>
                                             <action selector="openMapsAppForDirections:" destination="21" id="Bgg-CB-Bqh"/>
                                         </connections>
