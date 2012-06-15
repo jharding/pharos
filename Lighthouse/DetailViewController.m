@@ -164,4 +164,12 @@
     [self presentModalViewController:twitter animated:YES];
 }
 
+- (IBAction)showCurrentLocation:(id)sender 
+{
+    CLLocationCoordinate2D currentCoordinates = self.mapView.userLocation.location.coordinate;
+    
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentCoordinates, 1500, 1500);
+    [self.mapView setRegion:region animated:YES];
+}
+
 @end

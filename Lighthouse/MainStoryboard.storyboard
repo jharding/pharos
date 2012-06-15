@@ -105,6 +105,11 @@
                                             <action selector="tweetLocation:" destination="21" id="Vzj-mh-DkG"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Where Am I?" id="w8u-yg-dTJ">
+                                        <connections>
+                                            <action selector="showCurrentLocation:" destination="21" id="Fjb-VC-dPb"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xbg-pO-Txn"/>
                                 </items>
                             </toolbar>
@@ -124,20 +129,6 @@
     <resources>
         <image name="twitter.png" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="DetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="openMapsAppForDirections:"/>
-                <relationship kind="action" name="tweetLocation:"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="navigationItem" candidateClass="UINavigationItem"/>
-            </relationships>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

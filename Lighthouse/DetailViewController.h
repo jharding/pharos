@@ -18,4 +18,5 @@
 
 - (IBAction)openMapsAppForDirections:(id)sender;
 - (IBAction)tweetLocation:(id)sender;
+- (IBAction)showCurrentLocation:(id)sender;
 @end
