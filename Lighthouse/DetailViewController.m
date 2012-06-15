@@ -168,10 +168,12 @@
 
 - (IBAction)showCurrentLocation:(id)sender 
 {
-    CLLocationCoordinate2D currentCoordinates = self.mapView.userLocation.location.coordinate;
-    
+    CLLocationCoordinate2D currentCoordinates = self.mapView.userLocation.location.coordinate;    
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentCoordinates,
                                 ZOOM_DISTANCE_IN_METERS, ZOOM_DISTANCE_IN_METERS);
+    
+    NSLog(@"Showing user current location: %f,%f", 
+          currentCoordinates.latitude, currentCoordinates.longitude);
     [self.mapView setRegion:region animated:YES];
 }
 
