@@ -193,9 +193,9 @@
              // TODO: no placemarks
          }
          
-         
          // save context
-         NSLog(@"Saving location");
+         NSLog(@"Saving coordinate:%f,%f accuracy:%f", 
+               coordinate.latitude, coordinate.longitude,location.horizontalAccuracy);
          NSError *saveError = nil;
          if (![context save:&saveError]) {
              // Replace this implementation with code to handle the error appropriately.
