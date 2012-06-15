@@ -173,7 +173,7 @@
          // set the timestamp and coordinate of location
          Marker *marker = [NSEntityDescription insertNewObjectForEntityForName:[entity name] 
                                                         inManagedObjectContext:context];
-         [marker setTimeStamp:[NSDate date]];
+         [marker setTimestamp:[NSDate date]];
          [marker setLatitude:[NSNumber numberWithDouble:coordinate.latitude]];
          [marker setLongitude:[NSNumber numberWithDouble:coordinate.longitude]];
          [marker setAccuracy:[NSNumber numberWithDouble:location.horizontalAccuracy]];
@@ -182,11 +182,14 @@
          if ([placemarks count] > 0) {
              CLPlacemark *placemark = [placemarks objectAtIndex:0];
              
-             NSString *street = [NSString stringWithFormat:@"%@ %@", [placemark subThoroughfare],
-                                [placemark thoroughfare]];
+             NSString *street = [NSString stringWithFormat:@"%@ %@", placemark.subThoroughfare,
+                                placemark.thoroughfare];
+             
              [marker setStreet:street];
-             [marker setCity:[placemark locality]];
-             [marker setState:[placemark administrativeArea]];
+             [marker setCity:placemark.locality];
+             [marker setState:placemark.administrativeArea];
+             [marker setName:[NSString stringWithFormat:ADDRESS_FORMAT, street, 
+             placemark.locality, placemark.administrativeArea]];
          }
          
          else {
@@ -280,7 +283,7 @@
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:NO];
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -365,22 +368,19 @@
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     // construct address string and figure out its size
-    NSString *street = [object valueForKey:@"street"];
-    NSString *city = [object valueForKey:@"city"];
-    NSString *state = [object valueForKey:@"state"];
-    NSString *address = [NSString stringWithFormat:ADDRESS_FORMAT, street, city, state];
-    CGSize textLabelSize = [address sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18.0f]
-                               constrainedToSize:maxLabelSize lineBreakMode:UILineBreakModeWordWrap];
+    NSString *name = [object valueForKey:@"name"];
+    CGSize textLabelSize = [name sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18.0f]
+                           constrainedToSize:maxLabelSize lineBreakMode:UILineBreakModeWordWrap];
     
     // construct date string and figure out its size
-    NSDate *date = [object valueForKey:@"timeStamp"];
+    NSDate *date = [object valueForKey:@"timestamp"];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
     NSString *dateString = [dateFormatter stringFromDate:date];
     CGSize detailTextLabelSize = [dateString sizeWithFont:[UIFont fontWithName:@"Helvetica" 
-                                                                          size:14.0f] constrainedToSize:maxLabelSize 
-                                            lineBreakMode:UILineBreakModeWordWrap];
+                                 size:14.0f] constrainedToSize:maxLabelSize 
+                                 lineBreakMode:UILineBreakModeWordWrap];
     
     return textLabelSize.height + detailTextLabelSize.height + 
     TEXT_LABEL_PADDING;    
@@ -390,14 +390,11 @@
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    // construct address string and set the text label's value accordingly
-    NSString *street = [object valueForKey:@"street"];
-    NSString *city = [object valueForKey:@"city"];
-    NSString *state = [object valueForKey:@"state"];
-    cell.textLabel.text = [NSString stringWithFormat:ADDRESS_FORMAT, street, city, state];
+    NSString *name = [object valueForKey:@"name"];
+    cell.textLabel.text = name;
     
     // construct date string and set the detail text label's value accordingly
-    NSDate *date = [object valueForKey:@"timeStamp"];
+    NSDate *date = [object valueForKey:@"timestamp"];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];

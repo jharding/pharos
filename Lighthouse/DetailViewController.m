@@ -37,9 +37,7 @@
 }
 
 - (void)configureView
-{
-    // Update the user interface for the detail item.
-    
+{    
     NSString *street = [self.detailItem valueForKey:@"street"];
     
     self.navigationItem.title = street;

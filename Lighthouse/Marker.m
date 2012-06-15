@@ -11,7 +11,8 @@
 
 @implementation Marker
 
-@dynamic timeStamp;
+@dynamic timestamp;
+@dynamic name;
 @dynamic city;
 @dynamic street;
 @dynamic state;
