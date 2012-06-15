@@ -10,6 +10,7 @@
 
 #import <Twitter/Twitter.h>
 
+#define ZOOM_DISTANCE_IN_METERS 1000
 #define OVERLAY_OPACITY 0.3
 #define OVERLAY_STROKE_WIDTH 5
 
@@ -42,23 +43,24 @@
     
     self.navigationItem.title = street;
     
-    CLLocationCoordinate2D coordinate;
-    coordinate.latitude = [[self.detailItem valueForKey:@"latitude"] doubleValue];
-    coordinate.longitude = [[self.detailItem valueForKey:@"longitude"] doubleValue];
+    CLLocationCoordinate2D coordinates;
+    coordinates.latitude = [[self.detailItem valueForKey:@"latitude"] doubleValue];
+    coordinates.longitude = [[self.detailItem valueForKey:@"longitude"] doubleValue];
     
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-    annotation.coordinate = coordinate;
+    annotation.coordinate = coordinates;
     annotation.title = street;
     [self.mapView addAnnotation:annotation];
     
     // only show accuracy overlay if accuracy isn't within 10 meters
     CLLocationDistance accuracy = [[self.detailItem valueForKey:@"accuracy"] doubleValue];
     if (accuracy > kCLLocationAccuracyNearestTenMeters) {
-        MKCircle *circle = [MKCircle circleWithCenterCoordinate:coordinate radius:accuracy];
+        MKCircle *circle = [MKCircle circleWithCenterCoordinate:coordinates radius:accuracy];
         [self.mapView addOverlay:circle];
     }
     
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 1500, 1500);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinates, 
+                                ZOOM_DISTANCE_IN_METERS, ZOOM_DISTANCE_IN_METERS);
     [self.mapView setRegion:region];
 }
 
@@ -131,9 +133,9 @@
 {
     NSLog(@"Opening Maps app for directions");
     
-    CLLocationCoordinate2D startCoordinate = self.mapView.userLocation.location.coordinate;
-    double startLatitude = startCoordinate.latitude;
-    double startLongitude = startCoordinate.longitude;
+    CLLocationCoordinate2D startCoordinates = self.mapView.userLocation.location.coordinate;
+    double startLatitude = startCoordinates.latitude;
+    double startLongitude = startCoordinates.longitude;
     
     double destinationLatitude = [[self.detailItem valueForKey:@"latitude"] doubleValue];
     double destinationLongitude = [[self.detailItem valueForKey:@"longitude"] doubleValue];
@@ -168,7 +170,8 @@
 {
     CLLocationCoordinate2D currentCoordinates = self.mapView.userLocation.location.coordinate;
     
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentCoordinates, 1500, 1500);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentCoordinates,
+                                ZOOM_DISTANCE_IN_METERS, ZOOM_DISTANCE_IN_METERS);
     [self.mapView setRegion:region animated:YES];
 }
 

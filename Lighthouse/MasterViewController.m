@@ -162,20 +162,20 @@
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     
     // get the user's current location
-    CLLocationCoordinate2D coordinate = [location coordinate];
+    CLLocationCoordinate2D coordinates = [location coordinate];
     
-    NSLog(@"Attempting to reverse geocode %f, %f", coordinate.latitude, coordinate.longitude);
+    NSLog(@"Attempting to reverse geocode %f, %f", coordinates.latitude, coordinates.longitude);
     [[self geocoder] reverseGeocodeLocation:location completionHandler:
      ^(NSArray *placemarks, NSError *error) 
      {
          [self hideHUD];
          
-         // set the timestamp and coordinate of location
+         // set the timestamp and coordinates of location
          Marker *marker = [NSEntityDescription insertNewObjectForEntityForName:[entity name] 
                                                         inManagedObjectContext:context];
          [marker setTimestamp:[NSDate date]];
-         [marker setLatitude:[NSNumber numberWithDouble:coordinate.latitude]];
-         [marker setLongitude:[NSNumber numberWithDouble:coordinate.longitude]];
+         [marker setLatitude:[NSNumber numberWithDouble:coordinates.latitude]];
+         [marker setLongitude:[NSNumber numberWithDouble:coordinates.longitude]];
          [marker setAccuracy:[NSNumber numberWithDouble:location.horizontalAccuracy]];
          
          // if placemark is available, set address
@@ -197,8 +197,8 @@
          }
          
          // save context
-         NSLog(@"Saving coordinate:%f,%f accuracy:%f", 
-               coordinate.latitude, coordinate.longitude,location.horizontalAccuracy);
+         NSLog(@"Saving coordinates:%f,%f accuracy:%f", 
+               coordinates.latitude, coordinates.longitude, location.horizontalAccuracy);
          NSError *saveError = nil;
          if (![context save:&saveError]) {
              // Replace this implementation with code to handle the error appropriately.
