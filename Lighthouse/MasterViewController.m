@@ -146,7 +146,7 @@
     }
     
     // ran out of attempts and still have inaccurate location
-    else if (location.horizontalAccuracy > kCLLocationAccuracyNearestTenMeters) {
+    else if (location.horizontalAccuracy > kCLLocationAccuracyHundredMeters) {
         NSLog(@"Retrieved inaccurate location");
         [self showAlertViewWithTitle:NSLocalizedString(@"inaccurateLocationAlertTitle", nil) 
         message:NSLocalizedString(@"inaccurateLocationAlertMessage", nil)];
