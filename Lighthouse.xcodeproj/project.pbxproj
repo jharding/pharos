@@ -10,6 +10,7 @@
 		32095EF31589AC040017398D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32095EF21589AC040017398D /* Localizable.strings */; };
 		32095EFA1589D7010017398D /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32095EF91589D7010017398D /* Twitter.framework */; };
 		32095F08158AF1800017398D /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 32095F07158AF1800017398D /* twitter.png */; };
+		32095F0E158B00540017398D /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32095F0D158B00540017398D /* twitter@2x.png */; };
 		32703C21158980F00083DC34 /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 32703C20158980F00083DC34 /* flag.png */; };
 		32E4C0D51585C977005DB9CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D41585C977005DB9CC /* UIKit.framework */; };
 		32E4C0D71585C977005DB9CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D61585C977005DB9CC /* Foundation.framework */; };
@@ -48,6 +49,7 @@
 		32095EF21589AC040017398D /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		32095EF91589D7010017398D /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		32095F07158AF1800017398D /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twitter.png; path = images/twitter.png; sourceTree = "<group>"; };
+		32095F0D158B00540017398D /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "twitter@2x.png"; path = "images/twitter@2x.png"; sourceTree = "<group>"; };
 		32703C20158980F00083DC34 /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flag.png; path = images/flag.png; sourceTree = "<group>"; };
 		32E4C0D01585C977005DB9CC /* Lighthouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lighthouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E4C0D41585C977005DB9CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -112,6 +114,7 @@
 		32703C23158981140083DC34 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				32095F0D158B00540017398D /* twitter@2x.png */,
 				32095F07158AF1800017398D /* twitter.png */,
 				32095EF21589AC040017398D /* Localizable.strings */,
 				32703C20158980F00083DC34 /* flag.png */,
@@ -288,6 +291,7 @@
 				32703C21158980F00083DC34 /* flag.png in Resources */,
 				32095EF31589AC040017398D /* Localizable.strings in Resources */,
 				32095F08158AF1800017398D /* twitter.png in Resources */,
+				32095F0E158B00540017398D /* twitter@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
