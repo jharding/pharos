@@ -1,2 +1,10 @@
 exclude: ['grunt.js', 'node_modules']
 auto: true
+
+title: 'Lighthouse'
+subtitle: ''
+author:
+  name: 'Jake Harding'
+  email: 'jacob.s.harding@gmail.com'
+  twitter: 'JakeHarding'
+  github: 'jharding'
