@@ -1,5 +1,13 @@
 module.exports = function(grunt) {
   grunt.initConfig({
+    concat: {
+      map: {
+        src: ['src/vendor/underscore/underscore.js',
+              'src/js/map/utils.js',
+              'src/js/map/loader.js'],
+        dest: 'public/js/map.js'
+      }
+    },
     recess: {
       dev: {
         src: ['src/css/style.less'],
