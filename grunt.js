@@ -1,15 +1,18 @@
 module.exports = function(grunt) {
   grunt.initConfig({
-    less: {
+    recess: {
       dev: {
         src: ['public/css/style.less'],
-        dest: 'public/css/style.css'
+        dest: 'public/css/style.css',
+        options: {
+          compile: true
+        }
       },
       prod: {
         src: ['public/css/style.less'],
         dest: 'public/css/style.css',
         options: {
-          yuicompress: true
+          compress: true
         }
       }
     },
@@ -19,7 +22,7 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-less');
+  grunt.loadNpmTasks('grunt-recess');
 
-  grunt.registerTask('prod', 'less:prod');
+  grunt.registerTask('prod', 'recess:prod');
 };
