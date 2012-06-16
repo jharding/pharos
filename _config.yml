@@ -1,0 +1,2 @@
+exclude: ['grunt.js', 'node_modules']
+auto: true
