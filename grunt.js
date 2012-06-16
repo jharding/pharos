@@ -1,11 +1,20 @@
 module.exports = function(grunt) {
   grunt.initConfig({
+    lint: {
+      files: 'src/js/**/*'
+    },
     concat: {
       map: {
         src: ['src/vendor/underscore/underscore.js',
               'src/js/map/utils.js',
               'src/js/map/loader.js'],
         dest: 'public/js/map.js'
+      }
+    },
+    min: {
+      map: {
+        src: 'public/js/map.js', 
+        dest: 'public/js/map.min.js'
       }
     },
     recess: {
@@ -24,9 +33,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    lint: {
-      files: 'src/js/**/*'
-    },
     watch: {
       files: 'src/**/*.less',
       tasks: 'recess:dev'
@@ -35,5 +41,5 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-recess');
 
-  grunt.registerTask('prod', 'recess:prod');
+  grunt.registerTask('prod', 'lint recess:prod concat min');
 };
