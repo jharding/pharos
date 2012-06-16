@@ -12,7 +12,6 @@
 		32095F08158AF1800017398D /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 32095F07158AF1800017398D /* twitter.png */; };
 		32095F0E158B00540017398D /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32095F0D158B00540017398D /* twitter@2x.png */; };
 		32095F67158C11F40017398D /* Marker.m in Sources */ = {isa = PBXBuildFile; fileRef = 32095F66158C11F40017398D /* Marker.m */; };
-		32703C21158980F00083DC34 /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 32703C20158980F00083DC34 /* flag.png */; };
 		32E4C0D51585C977005DB9CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D41585C977005DB9CC /* UIKit.framework */; };
 		32E4C0D71585C977005DB9CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D61585C977005DB9CC /* Foundation.framework */; };
 		32E4C0D91585C977005DB9CC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D81585C977005DB9CC /* CoreGraphics.framework */; };
@@ -33,6 +32,8 @@
 		32E4C11E1585CA8B005DB9CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C11D1585CA8B005DB9CC /* MapKit.framework */; };
 		32E4C1201585CA90005DB9CC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C11F1585CA8F005DB9CC /* CoreLocation.framework */; };
 		32E4C1221585CB00005DB9CC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E4C1211585CAFF005DB9CC /* MainStoryboard.storyboard */; };
+		32E51D7B158D310000BB7BDC /* annotation.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E51D7A158D310000BB7BDC /* annotation.png */; };
+		32E51D7D158D316200BB7BDC /* annotation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E51D7C158D316200BB7BDC /* annotation@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +53,6 @@
 		32095F0D158B00540017398D /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "twitter@2x.png"; path = "images/twitter@2x.png"; sourceTree = "<group>"; };
 		32095F65158C11F40017398D /* Marker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Marker.h; sourceTree = "<group>"; };
 		32095F66158C11F40017398D /* Marker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Marker.m; sourceTree = "<group>"; };
-		32703C20158980F00083DC34 /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flag.png; path = images/flag.png; sourceTree = "<group>"; };
 		32E4C0D01585C977005DB9CC /* Lighthouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lighthouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E4C0D41585C977005DB9CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		32E4C0D61585C977005DB9CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -80,6 +80,8 @@
 		32E4C11D1585CA8B005DB9CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		32E4C11F1585CA8F005DB9CC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		32E4C1211585CAFF005DB9CC /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		32E51D7A158D310000BB7BDC /* annotation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = annotation.png; path = images/annotation.png; sourceTree = "<group>"; };
+		32E51D7C158D316200BB7BDC /* annotation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "annotation@2x.png"; path = "images/annotation@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +116,11 @@
 		32703C23158981140083DC34 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				32E51D7C158D316200BB7BDC /* annotation@2x.png */,
+				32E51D7A158D310000BB7BDC /* annotation.png */,
 				32095F0D158B00540017398D /* twitter@2x.png */,
 				32095F07158AF1800017398D /* twitter.png */,
 				32095EF21589AC040017398D /* Localizable.strings */,
-				32703C20158980F00083DC34 /* flag.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -288,10 +291,11 @@
 			files = (
 				32E4C0E11585C977005DB9CC /* InfoPlist.strings in Resources */,
 				32E4C1221585CB00005DB9CC /* MainStoryboard.storyboard in Resources */,
-				32703C21158980F00083DC34 /* flag.png in Resources */,
 				32095EF31589AC040017398D /* Localizable.strings in Resources */,
 				32095F08158AF1800017398D /* twitter.png in Resources */,
 				32095F0E158B00540017398D /* twitter@2x.png in Resources */,
+				32E51D7B158D310000BB7BDC /* annotation.png in Resources */,
+				32E51D7D158D316200BB7BDC /* annotation@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

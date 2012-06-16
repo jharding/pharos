@@ -100,7 +100,7 @@
     // reuse annotation view if possible
     MKPinAnnotationView *annotationView = (MKPinAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
     
-    // an annotation view isn't available so init a newone
+    // an annotation view isn't available so init a new one
     if (annotationView == nil) {
         annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation 
                          reuseIdentifier:identifier];
@@ -110,7 +110,7 @@
         annotationView.annotation = annotation;
     }
     
-    UIImage *annotationImage = [UIImage imageNamed:@"flag.png"];
+    UIImage *annotationImage = [UIImage imageNamed:@"annotation.png"];
     
     annotationView.enabled = YES;
     annotationView.canShowCallout = YES;
