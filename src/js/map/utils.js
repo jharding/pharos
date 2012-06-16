@@ -36,4 +36,5 @@
 
     // expose globally
     window.utils = utils;
+
 })(window._);
