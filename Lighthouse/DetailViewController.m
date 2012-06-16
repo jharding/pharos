@@ -87,6 +87,33 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+#pragma mark - MKMapViewDelegate
+
+- (void) mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
+{
+    // bring user location to front
+    for (MKAnnotationView *view in views) {
+        if ([view.annotation isKindOfClass:[MKUserLocation class]]) {
+            [view.superview bringSubviewToFront:view];
+        }
+        
+        else {
+            [view.superview sendSubviewToBack:view];
+        }
+    }
+}
+
+-(void) mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+{
+    // bring user location to front
+    for (id annotation in [mapView annotations]) {
+        if ([annotation isKindOfClass:[MKUserLocation class]]) {
+            MKAnnotationView *view = [mapView viewForAnnotation:(MKUserLocation *)annotation];
+            [view.superview bringSubviewToFront:view];
+        }
+    }
+}
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
     // static identifier so annotation views can be reused
@@ -128,6 +155,8 @@
     
     return circleView;
 }
+
+#pragma mark - UI Handlers
 
 - (IBAction)openMapsAppForDirections:(id)sender 
 {
