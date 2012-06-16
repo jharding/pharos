@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+
+    <meta name='description' content="{{ page.description }}" />
+    <meta name='keywords' content='{{ page.keywords }}' />
+    <meta name='author' content='{{ site.author.name }}' />
+
+    {% if page.title %}
+      <title>{{ page.title }} | {{ site.title }}</title>
+    {% else %}
+      <title>{{ site.title }} - {{ site.subtitle }}</title>
+    {% endif %}
+
+    <link rel='shortcut icon' href='/public/img/favicon.ico?1'>
+    
+    <link rel='stylesheet' href='/public/style/style.css'>
+
+    <!--[if lte IE 8]>
+      <script src="/public/vendor/html5shiv/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body class='{{ page.class }}'>
+    {{ content }}
+  </body>
+</html>
