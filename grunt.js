@@ -16,6 +16,9 @@ module.exports = function(grunt) {
         }
       }
     },
+    lint: {
+      files: 'public/js/**/*'
+    },
     watch: {
       files: 'public/**/*.less',
       tasks: 'less:dev'
