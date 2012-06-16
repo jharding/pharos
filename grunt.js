@@ -2,14 +2,14 @@ module.exports = function(grunt) {
   grunt.initConfig({
     recess: {
       dev: {
-        src: ['public/css/style.less'],
+        src: ['src/css/style.less'],
         dest: 'public/css/style.css',
         options: {
           compile: true
         }
       },
       prod: {
-        src: ['public/css/style.less'],
+        src: ['src/css/style.less'],
         dest: 'public/css/style.css',
         options: {
           compress: true
@@ -17,11 +17,11 @@ module.exports = function(grunt) {
       }
     },
     lint: {
-      files: 'public/js/**/*'
+      files: 'src/js/**/*'
     },
     watch: {
-      files: 'public/**/*.less',
-      tasks: 'less:dev'
+      files: 'src/**/*.less',
+      tasks: 'recess:dev'
     }
   });
 
