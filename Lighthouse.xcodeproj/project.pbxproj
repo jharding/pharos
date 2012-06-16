@@ -125,7 +125,6 @@
 		32E4C0C51585C977005DB9CC = {
 			isa = PBXGroup;
 			children = (
-				32095EF91589D7010017398D /* Twitter.framework */,
 				32E4C0DC1585C977005DB9CC /* Lighthouse */,
 				32E4C1011585C977005DB9CC /* LighthouseTests */,
 				32E4C0D31585C977005DB9CC /* Frameworks */,
@@ -145,6 +144,7 @@
 		32E4C0D31585C977005DB9CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				32095EF91589D7010017398D /* Twitter.framework */,
 				32E4C11F1585CA8F005DB9CC /* CoreLocation.framework */,
 				32E4C11D1585CA8B005DB9CC /* MapKit.framework */,
 				32E4C0D41585C977005DB9CC /* UIKit.framework */,
