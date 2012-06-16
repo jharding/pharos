@@ -14,6 +14,7 @@
 
 @property (nonatomic, retain) NSDate *timestamp;
 @property (nonatomic, retain) NSNumber *accuracy;
+@property (nonatomic, retain) NSNumber *heading;
 @property (nonatomic, retain) NSNumber *latitude;
 @property (nonatomic, retain) NSNumber *longitude;
 @property (nonatomic, retain) NSString *address;

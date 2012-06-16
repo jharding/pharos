@@ -179,6 +179,15 @@
          [marker setLongitude:[NSNumber numberWithDouble:coordinates.longitude]];
          [marker setAccuracy:[NSNumber numberWithDouble:location.horizontalAccuracy]];
          
+         if (location.course >= 0) {
+             [marker setHeading:[NSNumber numberWithDouble:location.course]];
+         }
+         
+         else {
+             NSLog(@"Invalid heading");
+             [marker setHeading:0];
+         }
+             
          // if placemark is available, set address
          if ([placemarks count] > 0) {
              CLPlacemark *placemark = [placemarks objectAtIndex:0];
@@ -203,8 +212,9 @@
          }
          
          // save context
-         NSLog(@"Saving coordinates:%f,%f accuracy:%f", 
-               coordinates.latitude, coordinates.longitude, location.horizontalAccuracy);
+         NSLog(@"Saving coordinates:%f,%f accuracy:%f, heading:%f", 
+               coordinates.latitude, coordinates.longitude,
+               location.horizontalAccuracy, location.course);
          NSError *saveError = nil;
          if (![context save:&saveError]) {
              // Replace this implementation with code to handle the error appropriately.

@@ -13,6 +13,7 @@
 
 @dynamic timestamp;
 @dynamic accuracy;
+@dynamic heading;
 @dynamic latitude;
 @dynamic longitude;
 @dynamic address;
