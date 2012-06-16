@@ -34,6 +34,10 @@
 		32E4C1221585CB00005DB9CC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E4C1211585CAFF005DB9CC /* MainStoryboard.storyboard */; };
 		32E51D7B158D310000BB7BDC /* annotation.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E51D7A158D310000BB7BDC /* annotation.png */; };
 		32E51D7D158D316200BB7BDC /* annotation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E51D7C158D316200BB7BDC /* annotation@2x.png */; };
+		32E51D8E158D371600BB7BDC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E51D8A158D371600BB7BDC /* Default.png */; };
+		32E51D8F158D371600BB7BDC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E51D8B158D371600BB7BDC /* Default@2x.png */; };
+		32E51D90158D371600BB7BDC /* iphone-app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E51D8C158D371600BB7BDC /* iphone-app-icon.png */; };
+		32E51D91158D371600BB7BDC /* iphone-app-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E51D8D158D371600BB7BDC /* iphone-app-icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +86,10 @@
 		32E4C1211585CAFF005DB9CC /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		32E51D7A158D310000BB7BDC /* annotation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = annotation.png; path = images/annotation.png; sourceTree = "<group>"; };
 		32E51D7C158D316200BB7BDC /* annotation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "annotation@2x.png"; path = "images/annotation@2x.png"; sourceTree = "<group>"; };
+		32E51D8A158D371600BB7BDC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = images/Default.png; sourceTree = "<group>"; };
+		32E51D8B158D371600BB7BDC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "images/Default@2x.png"; sourceTree = "<group>"; };
+		32E51D8C158D371600BB7BDC /* iphone-app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone-app-icon.png"; path = "images/iphone-app-icon.png"; sourceTree = "<group>"; };
+		32E51D8D158D371600BB7BDC /* iphone-app-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone-app-icon@2x.png"; path = "images/iphone-app-icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +124,10 @@
 		32703C23158981140083DC34 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				32E51D8A158D371600BB7BDC /* Default.png */,
+				32E51D8B158D371600BB7BDC /* Default@2x.png */,
+				32E51D8C158D371600BB7BDC /* iphone-app-icon.png */,
+				32E51D8D158D371600BB7BDC /* iphone-app-icon@2x.png */,
 				32E51D7C158D316200BB7BDC /* annotation@2x.png */,
 				32E51D7A158D310000BB7BDC /* annotation.png */,
 				32095F0D158B00540017398D /* twitter@2x.png */,
@@ -296,6 +308,10 @@
 				32095F0E158B00540017398D /* twitter@2x.png in Resources */,
 				32E51D7B158D310000BB7BDC /* annotation.png in Resources */,
 				32E51D7D158D316200BB7BDC /* annotation@2x.png in Resources */,
+				32E51D8E158D371600BB7BDC /* Default.png in Resources */,
+				32E51D8F158D371600BB7BDC /* Default@2x.png in Resources */,
+				32E51D90158D371600BB7BDC /* iphone-app-icon.png in Resources */,
+				32E51D91158D371600BB7BDC /* iphone-app-icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
