@@ -14,8 +14,12 @@
     {% endif %}
 
     <link rel='shortcut icon' href='/public/img/favicon.ico?1'>
-    
-    <link rel='stylesheet' href='/public/style/style.css'>
+
+    {% if site.production %}
+      <link rel='stylesheet' href='/public/css/style.min.css'>
+    {% else %}
+      <link rel='stylesheet' href='/public/css/style.css'>
+    {% endif %}
 
     <!--[if lte IE 8]>
       <script src="/public/vendor/html5shiv/html5shiv.js"></script>
@@ -24,8 +28,12 @@
   <body class='{{ page.class }}'>
     {{ content }}
 
-    {% for file in page.js %}
-      <script src='{{ file }}'></script>
+    {% for file in page.javascript %}
+      {% if site.production %}
+        <script src='{{ file | replace:".js", ".min.js" }}'></script>
+      {% else %}
+        <script src='{{ file }}'></script>
+      {% endif %}
     {% endfor %}
   </body>
 </html>

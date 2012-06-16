@@ -27,7 +27,7 @@ module.exports = function(grunt) {
       },
       prod: {
         src: ['src/css/style.less'],
-        dest: 'public/css/style.css',
+        dest: 'public/css/style.min.css',
         options: {
           compress: true
         }
