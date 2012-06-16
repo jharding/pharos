@@ -2,7 +2,7 @@
 //  Marker.m
 //  Lighthouse
 //
-//  Created by Jacob Harding on 6/10/12.
+//  Created by Jacob Harding on 6/15/12.
 //  Copyright (c) 2012 University of Michigan. All rights reserved.
 //
 
@@ -12,12 +12,16 @@
 @implementation Marker
 
 @dynamic timestamp;
-@dynamic name;
-@dynamic city;
-@dynamic street;
-@dynamic state;
+@dynamic accuracy;
 @dynamic latitude;
 @dynamic longitude;
-@dynamic accuracy;
+@dynamic address;
+@dynamic name;
+@dynamic subThoroughfare;
+@dynamic thoroughfare;
+@dynamic city;
+@dynamic state;
+@dynamic country;
+@dynamic postalCode;
 
 @end

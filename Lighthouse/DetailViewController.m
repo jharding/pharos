@@ -39,9 +39,9 @@
 
 - (void)configureView
 {    
-    NSString *street = [self.detailItem valueForKey:@"street"];
+    NSString *name = [self.detailItem valueForKey:@"name"];
     
-    self.navigationItem.title = street;
+    self.navigationItem.title = name;
     
     CLLocationCoordinate2D coordinates;
     coordinates.latitude = [[self.detailItem valueForKey:@"latitude"] doubleValue];
@@ -49,7 +49,7 @@
     
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     annotation.coordinate = coordinates;
-    annotation.title = street;
+    annotation.title = name;
     [self.mapView addAnnotation:annotation];
     
     // only show accuracy overlay if accuracy isn't within 10 meters

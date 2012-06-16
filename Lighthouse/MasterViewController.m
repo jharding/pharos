@@ -182,14 +182,19 @@
          if ([placemarks count] > 0) {
              CLPlacemark *placemark = [placemarks objectAtIndex:0];
              
-             NSString *street = [NSString stringWithFormat:@"%@ %@", placemark.subThoroughfare,
-                                placemark.thoroughfare];
              
-             [marker setStreet:street];
+             [marker setName:placemark.name];
+             [marker setThoroughfare:placemark.thoroughfare];
+             [marker setSubThoroughfare:placemark.subThoroughfare];
              [marker setCity:placemark.locality];
              [marker setState:placemark.administrativeArea];
-             [marker setName:[NSString stringWithFormat:ADDRESS_FORMAT, street, 
-             placemark.locality, placemark.administrativeArea]];
+             [marker setCountry:placemark.country];
+             [marker setPostalCode:placemark.postalCode];
+             
+             NSString *address = [NSString stringWithFormat:ADDRESS_FORMAT,
+                                  placemark.name, placemark.locality,
+                                  placemark.administrativeArea];
+             [marker setAddress:address];
          }
          
          else {
@@ -368,8 +373,8 @@
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     // construct address string and figure out its size
-    NSString *name = [object valueForKey:@"name"];
-    CGSize textLabelSize = [name sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18.0f]
+    NSString *address = [object valueForKey:@"address"];
+    CGSize textLabelSize = [address sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18.0f]
                            constrainedToSize:maxLabelSize lineBreakMode:UILineBreakModeWordWrap];
     
     // construct date string and figure out its size
@@ -390,8 +395,8 @@
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    NSString *name = [object valueForKey:@"name"];
-    cell.textLabel.text = name;
+    NSString *address = [object valueForKey:@"address"];
+    cell.textLabel.text = address;
     
     // construct date string and set the detail text label's value accordingly
     NSDate *date = [object valueForKey:@"timestamp"];
