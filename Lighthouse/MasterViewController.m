@@ -80,7 +80,8 @@
 {
     [super viewDidLoad];
     
-	self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:.49 
+                                                        green:.69 blue:.84 alpha:1];
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     self.navigationItem.rightBarButtonItem = [self addButton];
     self.addButton.enabled = NO;
