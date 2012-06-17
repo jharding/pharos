@@ -12,6 +12,8 @@
 		32095F08158AF1800017398D /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 32095F07158AF1800017398D /* twitter.png */; };
 		32095F0E158B00540017398D /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32095F0D158B00540017398D /* twitter@2x.png */; };
 		32095F67158C11F40017398D /* Marker.m in Sources */ = {isa = PBXBuildFile; fileRef = 32095F66158C11F40017398D /* Marker.m */; };
+		320C6D1B158E028D0082EF6D /* InfoNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 320C6D18158E028D0082EF6D /* InfoNavigationViewController.m */; };
+		320C6D1C158E028D0082EF6D /* InfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 320C6D1A158E028D0082EF6D /* InfoTableViewController.m */; };
 		326CCABA158D84B400380BC5 /* get-started@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326CCAB9158D84B400380BC5 /* get-started@2x.png */; };
 		326CCABC158DA09800380BC5 /* get-started.png in Resources */ = {isa = PBXBuildFile; fileRef = 326CCABB158DA09800380BC5 /* get-started.png */; };
 		32E4C0D51585C977005DB9CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D41585C977005DB9CC /* UIKit.framework */; };
@@ -40,8 +42,6 @@
 		32E51D8F158D371600BB7BDC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E51D8B158D371600BB7BDC /* Default@2x.png */; };
 		32E51D90158D371600BB7BDC /* iphone-app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E51D8C158D371600BB7BDC /* iphone-app-icon.png */; };
 		32E51D91158D371600BB7BDC /* iphone-app-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E51D8D158D371600BB7BDC /* iphone-app-icon@2x.png */; };
-		32E72FF2158DECCD00E19796 /* InfoNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E72FF1158DECCD00E19796 /* InfoNavigationViewController.m */; };
-		32E72FF5158DECEC00E19796 /* InfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E72FF4158DECEC00E19796 /* InfoTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +61,10 @@
 		32095F0D158B00540017398D /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "twitter@2x.png"; path = "images/twitter@2x.png"; sourceTree = "<group>"; };
 		32095F65158C11F40017398D /* Marker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Marker.h; sourceTree = "<group>"; };
 		32095F66158C11F40017398D /* Marker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Marker.m; sourceTree = "<group>"; };
+		320C6D17158E028D0082EF6D /* InfoNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoNavigationViewController.h; sourceTree = "<group>"; };
+		320C6D18158E028D0082EF6D /* InfoNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoNavigationViewController.m; sourceTree = "<group>"; };
+		320C6D19158E028D0082EF6D /* InfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTableViewController.h; sourceTree = "<group>"; };
+		320C6D1A158E028D0082EF6D /* InfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTableViewController.m; sourceTree = "<group>"; };
 		326CCAB9158D84B400380BC5 /* get-started@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "get-started@2x.png"; path = "images/get-started@2x.png"; sourceTree = "<group>"; };
 		326CCABB158DA09800380BC5 /* get-started.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "get-started.png"; path = "images/get-started.png"; sourceTree = "<group>"; };
 		32E4C0D01585C977005DB9CC /* Pharos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pharos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,10 +100,6 @@
 		32E51D8B158D371600BB7BDC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "images/Default@2x.png"; sourceTree = "<group>"; };
 		32E51D8C158D371600BB7BDC /* iphone-app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone-app-icon.png"; path = "images/iphone-app-icon.png"; sourceTree = "<group>"; };
 		32E51D8D158D371600BB7BDC /* iphone-app-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone-app-icon@2x.png"; path = "images/iphone-app-icon@2x.png"; sourceTree = "<group>"; };
-		32E72FF0158DECCD00E19796 /* InfoNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoNavigationViewController.h; path = ../InfoNavigationViewController.h; sourceTree = "<group>"; };
-		32E72FF1158DECCD00E19796 /* InfoNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoNavigationViewController.m; path = ../InfoNavigationViewController.m; sourceTree = "<group>"; };
-		32E72FF3158DECEC00E19796 /* InfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoTableViewController.h; path = ../InfoTableViewController.h; sourceTree = "<group>"; };
-		32E72FF4158DECEC00E19796 /* InfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoTableViewController.m; path = ../InfoTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,10 +193,10 @@
 				32E4C0EF1585C977005DB9CC /* MasterViewController.m */,
 				32E4C0F11585C977005DB9CC /* DetailViewController.h */,
 				32E4C0F21585C977005DB9CC /* DetailViewController.m */,
-				32E72FF0158DECCD00E19796 /* InfoNavigationViewController.h */,
-				32E72FF1158DECCD00E19796 /* InfoNavigationViewController.m */,
-				32E72FF3158DECEC00E19796 /* InfoTableViewController.h */,
-				32E72FF4158DECEC00E19796 /* InfoTableViewController.m */,
+				320C6D17158E028D0082EF6D /* InfoNavigationViewController.h */,
+				320C6D18158E028D0082EF6D /* InfoNavigationViewController.m */,
+				320C6D19158E028D0082EF6D /* InfoTableViewController.h */,
+				320C6D1A158E028D0082EF6D /* InfoTableViewController.m */,
 				32095F65158C11F40017398D /* Marker.h */,
 				32095F66158C11F40017398D /* Marker.m */,
 				32E4C0EB1585C977005DB9CC /* Lighthouse.xcdatamodeld */,
@@ -371,8 +371,8 @@
 				32E4C0F31585C977005DB9CC /* DetailViewController.m in Sources */,
 				32E4C11C1585CA5E005DB9CC /* MBProgressHUD.m in Sources */,
 				32095F67158C11F40017398D /* Marker.m in Sources */,
-				32E72FF2158DECCD00E19796 /* InfoNavigationViewController.m in Sources */,
-				32E72FF5158DECEC00E19796 /* InfoTableViewController.m in Sources */,
+				320C6D1B158E028D0082EF6D /* InfoNavigationViewController.m in Sources */,
+				320C6D1C158E028D0082EF6D /* InfoTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
