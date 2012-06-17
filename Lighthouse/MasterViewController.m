@@ -86,13 +86,15 @@
     self.navigationItem.rightBarButtonItem = [self addButton];
     self.addButton.enabled = NO;
     
-    [[self locationManager] startUpdatingLocation];
+    [self.locationManager startUpdatingLocation];
+    [self.locationManager startUpdatingHeading];
     NSLog(@"locationManager started");
 }
 
 - (void)viewDidUnload
 {
-    [[self locationManager] stopUpdatingLocation];
+    [self.locationManager stopUpdatingLocation];
+    [self.locationManager stopUpdatingHeading];
     NSLog(@"locationManager stopped");
     
     [self setAddButton:nil];
@@ -118,7 +120,8 @@
 {
     [self showHUD];
     
-    CLLocation *location = [[self locationManager] location];
+    CLLocation *location = self.locationManager.location;
+    CLHeading *heading = self.locationManager.heading;
     
     // bad location if we got no location or bad accuracy
     BOOL isBadLocation = !location || 
@@ -153,11 +156,11 @@
         message:NSLocalizedString(@"inaccurateLocationAlertMessage", nil)];
     }
     
-    // saveLocation will hide the HUD
-    [self saveLocation:location];
+    // saveLocation:heading: will hide the HUD
+    [self saveLocation:location heading:heading];
 }
 
-- (void)saveLocation:(CLLocation *)location
+- (void)saveLocation:(CLLocation *)location heading:(CLHeading *)heading
 {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
@@ -179,8 +182,8 @@
          [marker setLongitude:[NSNumber numberWithDouble:coordinates.longitude]];
          [marker setAccuracy:[NSNumber numberWithDouble:location.horizontalAccuracy]];
          
-         if (location.course >= 0) {
-             [marker setHeading:[NSNumber numberWithDouble:location.course]];
+         if (heading != nil) {
+             [marker setHeading:[NSNumber numberWithDouble:heading.trueHeading]];
          }
          
          else {
@@ -214,7 +217,7 @@
          // save context
          NSLog(@"Saving coordinates:%f,%f accuracy:%f, heading:%f", 
                coordinates.latitude, coordinates.longitude,
-               location.horizontalAccuracy, location.course);
+               location.horizontalAccuracy, heading.trueHeading);
          NSError *saveError = nil;
          if (![context save:&saveError]) {
              // Replace this implementation with code to handle the error appropriately.
@@ -417,7 +420,7 @@
     cell.detailTextLabel.text = [dateFormatter stringFromDate:date];
 }
 
-#pragma mark - Location Delegate
+#pragma mark - Location Manager Delegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation 
            fromLocation:(CLLocation *)oldLocation
