@@ -6,7 +6,7 @@
   Copyright (c) 2012 University of Michigan. All rights reserved.
 */
 
-"savingNewLocation" = "Building new lighthouse...";
+"savingNewLocation" = "Getting current location..";
 
 // alert dialog for being unable to retreive location
 "noLocationAlertTitle" = "Woops";
@@ -17,4 +17,4 @@
 "inaccurateLocationAlertMessage" = "The accuracy of the location that was just saved might be a little off. If you need high accuracy, you should try and save this location again.";
 
 // boilerplate text for tweet
-"boilerplateTweet" = "#lighthouse";
+"boilerplateTweet" = "#pharos";
