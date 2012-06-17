@@ -459,9 +459,10 @@
                               initWithImage:[UIImage imageNamed:@"get-started.png"]];
         [self.view addSubview:self.getStartedView];
         
-        // disable scroll and edit button
+        // disable scrolling and editing
         self.tableView.scrollEnabled = NO;
         self.editButtonItem.enabled = NO;
+        self.editing = NO;
     }
 }
 
