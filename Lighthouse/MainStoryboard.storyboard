@@ -379,7 +379,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Info" id="9GP-oR-Hyh">
-                        <barButtonItem key="leftBarButtonItem" title="close" id="qhZ-1L-bA2">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="qhZ-1L-bA2">
                             <connections>
                                 <action selector="dismiss:" destination="rRn-cu-YhC" id="pQT-h3-b3A"/>
                             </connections>
