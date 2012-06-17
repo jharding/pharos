@@ -61,7 +61,7 @@
 		32095F66158C11F40017398D /* Marker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Marker.m; sourceTree = "<group>"; };
 		326CCAB9158D84B400380BC5 /* get-started@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "get-started@2x.png"; path = "images/get-started@2x.png"; sourceTree = "<group>"; };
 		326CCABB158DA09800380BC5 /* get-started.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "get-started.png"; path = "images/get-started.png"; sourceTree = "<group>"; };
-		32E4C0D01585C977005DB9CC /* Lighthouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lighthouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		32E4C0D01585C977005DB9CC /* Pharos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pharos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E4C0D41585C977005DB9CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		32E4C0D61585C977005DB9CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32E4C0D81585C977005DB9CC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -156,7 +156,7 @@
 		32E4C0D11585C977005DB9CC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				32E4C0D01585C977005DB9CC /* Lighthouse.app */,
+				32E4C0D01585C977005DB9CC /* Pharos.app */,
 				32E4C0F91585C977005DB9CC /* LighthouseTests.octest */,
 			);
 			name = Products;
@@ -253,7 +253,7 @@
 			);
 			name = Lighthouse;
 			productName = Lighthouse;
-			productReference = 32E4C0D01585C977005DB9CC /* Lighthouse.app */;
+			productReference = 32E4C0D01585C977005DB9CC /* Pharos.app */;
 			productType = "com.apple.product-type.application";
 		};
 		32E4C0F81585C977005DB9CC /* LighthouseTests */ = {
@@ -453,7 +453,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Lighthouse/Lighthouse-Prefix.pch";
 				INFOPLIST_FILE = "Lighthouse/Lighthouse-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Pharos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -464,7 +464,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Lighthouse/Lighthouse-Prefix.pch";
 				INFOPLIST_FILE = "Lighthouse/Lighthouse-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Pharos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
