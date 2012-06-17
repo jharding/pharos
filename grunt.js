@@ -34,8 +34,8 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: 'src/**/*.less',
-      tasks: 'recess:dev'
+      files: 'src/**/*',
+      tasks: 'recess:dev concat'
     }
   });
 
