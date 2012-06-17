@@ -158,6 +158,13 @@
 
 #pragma mark - UI Handlers
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"showInfo"]) {
+        [[segue destinationViewController] setDetailItem:self.detailItem];
+    }
+}
+
 - (IBAction)openMapsAppForDirections:(id)sender 
 {
     NSLog(@"Opening Maps app for directions");
