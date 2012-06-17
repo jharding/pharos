@@ -14,7 +14,6 @@
 		32095F67158C11F40017398D /* Marker.m in Sources */ = {isa = PBXBuildFile; fileRef = 32095F66158C11F40017398D /* Marker.m */; };
 		326CCABA158D84B400380BC5 /* get-started@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326CCAB9158D84B400380BC5 /* get-started@2x.png */; };
 		326CCABC158DA09800380BC5 /* get-started.png in Resources */ = {isa = PBXBuildFile; fileRef = 326CCABB158DA09800380BC5 /* get-started.png */; };
-		32DF5D6A158DD80E00F444D7 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DF5D69158DD80E00F444D7 /* InfoViewController.m */; };
 		32E4C0D51585C977005DB9CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D41585C977005DB9CC /* UIKit.framework */; };
 		32E4C0D71585C977005DB9CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D61585C977005DB9CC /* Foundation.framework */; };
 		32E4C0D91585C977005DB9CC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D81585C977005DB9CC /* CoreGraphics.framework */; };
@@ -62,8 +61,6 @@
 		32095F66158C11F40017398D /* Marker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Marker.m; sourceTree = "<group>"; };
 		326CCAB9158D84B400380BC5 /* get-started@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "get-started@2x.png"; path = "images/get-started@2x.png"; sourceTree = "<group>"; };
 		326CCABB158DA09800380BC5 /* get-started.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "get-started.png"; path = "images/get-started.png"; sourceTree = "<group>"; };
-		32DF5D68158DD80E00F444D7 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
-		32DF5D69158DD80E00F444D7 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		32E4C0D01585C977005DB9CC /* Pharos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pharos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E4C0D41585C977005DB9CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		32E4C0D61585C977005DB9CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -190,8 +187,6 @@
 				32E4C0EF1585C977005DB9CC /* MasterViewController.m */,
 				32E4C0F11585C977005DB9CC /* DetailViewController.h */,
 				32E4C0F21585C977005DB9CC /* DetailViewController.m */,
-				32DF5D68158DD80E00F444D7 /* InfoViewController.h */,
-				32DF5D69158DD80E00F444D7 /* InfoViewController.m */,
 				32095F65158C11F40017398D /* Marker.h */,
 				32095F66158C11F40017398D /* Marker.m */,
 				32E4C0EB1585C977005DB9CC /* Lighthouse.xcdatamodeld */,
@@ -366,7 +361,6 @@
 				32E4C0F31585C977005DB9CC /* DetailViewController.m in Sources */,
 				32E4C11C1585CA5E005DB9CC /* MBProgressHUD.m in Sources */,
 				32095F67158C11F40017398D /* Marker.m in Sources */,
-				32DF5D6A158DD80E00F444D7 /* InfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
