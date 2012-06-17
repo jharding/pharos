@@ -12,6 +12,8 @@
 		32095F08158AF1800017398D /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 32095F07158AF1800017398D /* twitter.png */; };
 		32095F0E158B00540017398D /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32095F0D158B00540017398D /* twitter@2x.png */; };
 		32095F67158C11F40017398D /* Marker.m in Sources */ = {isa = PBXBuildFile; fileRef = 32095F66158C11F40017398D /* Marker.m */; };
+		326CCABA158D84B400380BC5 /* get-started@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 326CCAB9158D84B400380BC5 /* get-started@2x.png */; };
+		326CCABC158DA09800380BC5 /* get-started.png in Resources */ = {isa = PBXBuildFile; fileRef = 326CCABB158DA09800380BC5 /* get-started.png */; };
 		32E4C0D51585C977005DB9CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D41585C977005DB9CC /* UIKit.framework */; };
 		32E4C0D71585C977005DB9CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D61585C977005DB9CC /* Foundation.framework */; };
 		32E4C0D91585C977005DB9CC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E4C0D81585C977005DB9CC /* CoreGraphics.framework */; };
@@ -57,6 +59,8 @@
 		32095F0D158B00540017398D /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "twitter@2x.png"; path = "images/twitter@2x.png"; sourceTree = "<group>"; };
 		32095F65158C11F40017398D /* Marker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Marker.h; sourceTree = "<group>"; };
 		32095F66158C11F40017398D /* Marker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Marker.m; sourceTree = "<group>"; };
+		326CCAB9158D84B400380BC5 /* get-started@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "get-started@2x.png"; path = "images/get-started@2x.png"; sourceTree = "<group>"; };
+		326CCABB158DA09800380BC5 /* get-started.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "get-started.png"; path = "images/get-started.png"; sourceTree = "<group>"; };
 		32E4C0D01585C977005DB9CC /* Lighthouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lighthouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E4C0D41585C977005DB9CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		32E4C0D61585C977005DB9CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -124,6 +128,8 @@
 		32703C23158981140083DC34 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				326CCAB9158D84B400380BC5 /* get-started@2x.png */,
+				326CCABB158DA09800380BC5 /* get-started.png */,
 				32E51D8A158D371600BB7BDC /* Default.png */,
 				32E51D8B158D371600BB7BDC /* Default@2x.png */,
 				32E51D8C158D371600BB7BDC /* iphone-app-icon.png */,
@@ -312,6 +318,8 @@
 				32E51D8F158D371600BB7BDC /* Default@2x.png in Resources */,
 				32E51D90158D371600BB7BDC /* iphone-app-icon.png in Resources */,
 				32E51D91158D371600BB7BDC /* iphone-app-icon@2x.png in Resources */,
+				326CCABA158D84B400380BC5 /* get-started@2x.png in Resources */,
+				326CCABC158DA09800380BC5 /* get-started.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

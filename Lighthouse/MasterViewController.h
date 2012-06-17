@@ -25,6 +25,7 @@
 
 // ui
 @property (strong, nonatomic) UIBarButtonItem *addButton;
+@property (strong, nonatomic) UIImageView *getStartedView;
 
 // location
 @property (strong, nonatomic) CLLocationManager *locationManager;

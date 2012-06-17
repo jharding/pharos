@@ -32,6 +32,7 @@
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize addButton = _addButton;
+@synthesize getStartedView = _getStartedView;
 @synthesize locationManager = _locationManager;
 @synthesize geocoder = _geocoder;
 
@@ -237,8 +238,22 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] 
+                                                   objectAtIndex:section];
+    
+    NSInteger numOfRows = [sectionInfo numberOfObjects];
+    
+    // show the get started view if the user doesn't have any
+    // saved locations
+    if (numOfRows == 0) {
+        [self showGetStartedView];
+    }
+    
+    else {
+        [self hideGetStartedView];
+    }
+    
+    return numOfRows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -435,6 +450,33 @@
 }
 
 #pragma mark - UI Helpers
+
+- (void)showGetStartedView
+{
+    if (!self.getStartedView) {
+        // create and add get started view as a subview
+        self.getStartedView = [[UIImageView alloc] 
+                              initWithImage:[UIImage imageNamed:@"get-started.png"]];
+        [self.view addSubview:self.getStartedView];
+        
+        // disable scroll and edit button
+        self.tableView.scrollEnabled = NO;
+        self.editButtonItem.enabled = NO;
+    }
+}
+
+- (void)hideGetStartedView
+{
+    if (self.getStartedView) {
+        // remove get started view
+        [self.getStartedView removeFromSuperview];
+        self.getStartedView = nil;
+        
+        // enable scroll and edit button
+        self.tableView.scrollEnabled = YES;
+        self.editButtonItem.enabled = YES;
+    }
+}
 
 - (void)showHUD
 {
