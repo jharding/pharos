@@ -1,14 +1,15 @@
 .default-layout {
-  background: black;
+  background: @footerColor;
   .body-wrapper {
     width: 100%;
     height: 740px;
     min-width: @gridRowWidth;
     background-attachment: scroll;
-    background-color: #a7d2e9;
+    background-color: @bodyWrapperColor;
     background-image: url('/public/img/background_lighthouse.png');
     background-position: right 40px;
     background-repeat: no-repeat;
+    border-top: 5px solid @bodyWrapperBorderColor;
     .container-header {
       padding: 20px 0;
     }
@@ -18,6 +19,12 @@
       .content {
         padding: 50px;
       }
+    }
+  }
+  .footer-wrapper {
+    border-top: 5px solid @footerBorderColor;
+    .container-footer {
+      min-height: 100px;
     }
   }
 }
