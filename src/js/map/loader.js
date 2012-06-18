@@ -66,12 +66,12 @@
         var exports = {
             start: function() {
                 var metadata = getMetadata();
-                var street = metadata.street || '';
-                var city = metadata.city || '';
-                var state = metadata.state || '';
+                var street = metadata.str || '';
+                var city = metadata.c || '';
+                var state = metadata.sta || '';
                 var lat = metadata.lat || 0;
                 var lng = metadata.lng || 0;
-                var heading = metadata.heading || 0;
+                var heading = metadata.h || 0;
 
                 setAddress(street, city, state);
                 loadStaticMap(lat, lng);
