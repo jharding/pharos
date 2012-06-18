@@ -23,8 +23,8 @@
 {
     [super viewDidLoad];
 	
-    self.navigationBar.tintColor = [UIColor colorWithRed:.49 
-                                   green:.69 blue:.84 alpha:1];
+    self.navigationBar.tintColor = [UIColor colorWithRed:49.0f/255.0f
+                                   green:146.0f/255.0f blue:198.0f/255.0f alpha:1];
     
     // this navigation view is acting as a proxy to the table view
     // detailItem just gets passed on
