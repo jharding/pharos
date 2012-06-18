@@ -190,9 +190,26 @@
     double longitude = self.detailItem.longitude.doubleValue;
     double heading = self.detailItem.heading.doubleValue;
     
-    NSString *urlFormat = @"http://pharosapp.com/map.html?lat=%f&lng=%f&heading=%.02f";
+    NSString *city = [self.detailItem.city 
+                      stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];    
+    NSString *state = [self.detailItem.state 
+                       stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+    NSString *street = nil;
+    if (self.detailItem.subThoroughfare) {
+        street = [[NSString stringWithFormat:@"%@ %@", 
+                 self.detailItem.subThoroughfare, self.detailItem.thoroughfare] 
+                 stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+    }
+    
+    else {
+        street = [self.detailItem.thoroughfare 
+                 stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+    }
+    
+    NSString *urlFormat = @"http://pharosapp.com/map.html?l=%f,%f&h=%.02f"
+                          "&sr=%@&c=%@&sa=%@";
     NSString *url = [NSString stringWithFormat:urlFormat, latitude, longitude, 
-                    heading];
+                    heading, street, city, state];
     
     TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
     [twitter addURL:[NSURL URLWithString:url]];
