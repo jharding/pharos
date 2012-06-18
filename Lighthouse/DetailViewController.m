@@ -189,9 +189,11 @@
     
     double latitude = [[self.detailItem valueForKey:@"latitude"] doubleValue];
     double longitude = [[self.detailItem valueForKey:@"longitude"] doubleValue];
+    double heading = [[self.detailItem valueForKey:@"heading"] doubleValue];
     
-    NSString *mapsUrlFormat = @"http://maps.google.com/maps?q=%f,%f";
-    NSString *url = [NSString stringWithFormat:mapsUrlFormat, latitude, longitude];
+    NSString *urlFormat = @"http://pharosapp.com/map.html?lat=%f&lng=%f&heading=%.02f";
+    NSString *url = [NSString stringWithFormat:urlFormat, latitude, longitude, 
+                    heading];
     
     TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
     [twitter addURL:[NSURL URLWithString:url]];
