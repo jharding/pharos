@@ -3,8 +3,8 @@ auto: true
 
 production: true 
 
-title: 'Lighthouse'
-subtitle: ''
+title: 'Pharos'
+subtitle: 'Clever tagline.'
 author:
   name: 'Jake Harding'
   email: 'jacob.s.harding@gmail.com'
