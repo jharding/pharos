@@ -26,15 +26,19 @@
     <![endif]-->
   </head>
   <body class='default-layout'>
-    <header class='container container-header'>
-      <h1>{{ site.title }}</h1>
-    </header>
-    <div class='container container-main {{ page.class }}'>
-      <div class='content'>
-        {{ content }}
+    <div class='body-wrapper'>
+      <header class='container container-header'>
+        <h1>{{ site.title }}</h1>
+      </header>
+      <div class='container container-main {{ page.class }}'>
+        <div class='content'>
+          {{ content }}
+        </div>
       </div>
     </div>
-
+    
+    <footer class='container container-footer'></footer>
+    
     {% for file in page.javascript %}
       {% if site.production %}
         <script src='{{ file | replace:".js", ".min.js" }}'></script>

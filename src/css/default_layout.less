@@ -1,13 +1,23 @@
 .default-layout {
-  background-color: rgb(167, 202, 255);
-  .container-header {
-    padding: 20px 0;
-  }
-  .container-main {
-    background-color: rgba(255, 255, 255, .75);
-    .border-radius(15px);
-    .content {
-      padding: 50px;
+  background: black;
+  .body-wrapper {
+    width: 100%;
+    height: 740px;
+    min-width: @gridRowWidth;
+    background-attachment: scroll;
+    background-color: #a7d2e9;
+    background-image: url('/public/img/background_lighthouse.png');
+    background-position: right 40px;
+    background-repeat: no-repeat;
+    .container-header {
+      padding: 20px 0;
+    }
+    .container-main {
+      background-color: rgba(255, 255, 255, .75);
+      .box-shadow(0 5px 5px rgba(0, 0, 0, .4));
+      .content {
+        padding: 50px;
+      }
     }
   }
 }
