@@ -9,6 +9,8 @@
         var MARKER_ICON_URL = 'http://pharosapp.com/public/img/map_icon.png';
 
         // DOM references
+        var streetText = document.getElementById('street-text');
+        var cityStateText = document.getElementById('city-state-text');
         var staticMapImage = document.getElementById('static-map');
         var streetViewImage = document.getElementById('street-view');
 
@@ -19,6 +21,18 @@
             // strip the leading ?
             var parameters = search.slice(1);
             return utils.deparam(parameters);
+        };
+
+        var setAddress = function(street, city, state) {
+           streetText.innerHTML = street;
+
+            if (city) {
+                cityStateText.innerHTML = city + ', ' + state;
+            }
+
+            else {
+                cityStateText.innerHTML = state;
+            }
         };
 
         var loadStaticMap = function(lat, lng) {
@@ -52,10 +66,14 @@
         var exports = {
             start: function() {
                 var metadata = getMetadata();
+                var street = metadata.street || '';
+                var city = metadata.city || '';
+                var state = metadata.state || '';
                 var lat = metadata.lat || 0;
                 var lng = metadata.lng || 0;
                 var heading = metadata.heading || 0;
 
+                setAddress(street, city, state);
                 loadStaticMap(lat, lng);
                 loadStreetView(lat, lng, heading);
             }
