@@ -25,8 +25,15 @@
       <script src="/public/vendor/html5shiv/html5shiv.js"></script>
     <![endif]-->
   </head>
-  <body class='{{ page.class }}'>
-    {{ content }}
+  <body class='default-layout'>
+    <header class='container container-header'>
+      <h1>{{ site.title }}</h1>
+    </header>
+    <div class='container container-main {{ page.class }}'>
+      <div class='content'>
+        {{ content }}
+      </div>
+    </div>
 
     {% for file in page.javascript %}
       {% if site.production %}
