@@ -15,12 +15,26 @@
         var streetViewImage = document.getElementById('street-view');
 
         // deserialize url parameters and put them in an object
-        var getMetadata = function() {
+        var getData = function() {
             var search = location.search;
 
             // strip the leading ?
             var parameters = search.slice(1);
-            return utils.deparam(parameters);
+            parameters = utils.deparam(parameters);
+            
+            var coordinates = parameters.l.split(',');
+            var lat = coordinates[0];
+            var lng = coordinates[1];
+
+            return {
+                lat: coordinates[0] || 0,
+                lng: coordinates[1] || 0,
+                heading: parameters.h || 0,
+                street: parameters.sr || '',
+                city: parameters.c || '',
+                state: parameters.sa || ''
+            };
+
         };
 
         var setAddress = function(street, city, state) {
@@ -65,17 +79,11 @@
 
         var exports = {
             start: function() {
-                var metadata = getMetadata();
-                var street = metadata.str || '';
-                var city = metadata.c || '';
-                var state = metadata.sta || '';
-                var lat = metadata.lat || 0;
-                var lng = metadata.lng || 0;
-                var heading = metadata.h || 0;
+                var data = getData();
 
-                setAddress(street, city, state);
-                loadStaticMap(lat, lng);
-                loadStreetView(lat, lng, heading);
+                setAddress(data.street, data.city, data.state);
+                loadStaticMap(data.lat, data.lng);
+                loadStreetView(data.lat, data.lng, data.heading);
             }
         };
 
