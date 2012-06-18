@@ -6,7 +6,7 @@
         var STATIC_MAP_TYPE = 'roadmap';
         var STATIC_MAP_URL = 'http://maps.googleapis.com/maps/api/staticmap?';
         var STREET_VIEW_URL = 'http://maps.googleapis.com/maps/api/streetview?';
-        var MARKER_ICON_URL = '';
+        var MARKER_ICON_URL = 'http://pharosapp.com/public/img/map_icon.png';
 
         // DOM references
         var staticMapImage = document.getElementById('static-map');
