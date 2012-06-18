@@ -10,9 +10,11 @@
 
 #import <MapKit/MapKit.h>
 
+@class Marker;
+
 @interface DetailViewController : UIViewController <MKMapViewDelegate> 
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) Marker *detailItem;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 

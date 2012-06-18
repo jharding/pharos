@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 
 #import <Twitter/Twitter.h>
+#import "Marker.h"
 
 #define ZOOM_DISTANCE_IN_METERS 1000
 #define OVERLAY_OPACITY 0.3
@@ -39,21 +40,19 @@
 
 - (void)configureView
 {    
-    NSString *name = [self.detailItem valueForKey:@"name"];
-    
-    self.navigationItem.title = name;
+    self.navigationItem.title = self.detailItem.name;
     
     CLLocationCoordinate2D coordinates;
-    coordinates.latitude = [[self.detailItem valueForKey:@"latitude"] doubleValue];
-    coordinates.longitude = [[self.detailItem valueForKey:@"longitude"] doubleValue];
+    coordinates.latitude = self.detailItem.latitude.doubleValue;
+    coordinates.longitude = self.detailItem.longitude.doubleValue;
     
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     annotation.coordinate = coordinates;
-    annotation.title = name;
+    annotation.title = self.detailItem.name;
     [self.mapView addAnnotation:annotation];
     
     // only show accuracy overlay if accuracy isn't within 10 meters
-    CLLocationDistance accuracy = [[self.detailItem valueForKey:@"accuracy"] doubleValue];
+    CLLocationDistance accuracy = self.detailItem.accuracy.doubleValue;
     if (accuracy > kCLLocationAccuracyNearestTenMeters) {
         MKCircle *circle = [MKCircle circleWithCenterCoordinate:coordinates radius:accuracy];
         [self.mapView addOverlay:circle];
@@ -173,8 +172,8 @@
     double startLatitude = startCoordinates.latitude;
     double startLongitude = startCoordinates.longitude;
     
-    double destinationLatitude = [[self.detailItem valueForKey:@"latitude"] doubleValue];
-    double destinationLongitude = [[self.detailItem valueForKey:@"longitude"] doubleValue];
+    double destinationLatitude = self.detailItem.latitude.doubleValue;
+    double destinationLongitude = self.detailItem.longitude.doubleValue;
     
     NSString *mapsUrlFormat = @"http://maps.google.com/maps?saddr=%f,%f&daddr=%f,%f";
     NSString *url = [NSString stringWithFormat:mapsUrlFormat, startLatitude, startLongitude,
@@ -187,9 +186,9 @@
 {
     NSLog(@"Prompting user with Twitter interface");
     
-    double latitude = [[self.detailItem valueForKey:@"latitude"] doubleValue];
-    double longitude = [[self.detailItem valueForKey:@"longitude"] doubleValue];
-    double heading = [[self.detailItem valueForKey:@"heading"] doubleValue];
+    double latitude = self.detailItem.latitude.doubleValue;
+    double longitude = self.detailItem.longitude.doubleValue;
+    double heading = self.detailItem.heading.doubleValue;
     
     NSString *urlFormat = @"http://pharosapp.com/map.html?lat=%f&lng=%f&heading=%.02f";
     NSString *url = [NSString stringWithFormat:urlFormat, latitude, longitude, 

@@ -9,6 +9,7 @@
 #import "InfoNavigationViewController.h"
 
 #import "InfoTableViewController.h"
+#import "Marker.h"
 
 @interface InfoNavigationViewController ()
 

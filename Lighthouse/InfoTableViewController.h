@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class Marker;
+
 @interface InfoTableViewController : UITableViewController
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) Marker *detailItem;
 
 @property (weak, nonatomic) IBOutlet UILabel *streetLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;

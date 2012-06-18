@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Marker;
+
 @interface InfoNavigationViewController : UINavigationController
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) Marker *detailItem;
 
 @end

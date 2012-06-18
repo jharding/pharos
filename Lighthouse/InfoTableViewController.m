@@ -8,6 +8,8 @@
 
 #import "InfoTableViewController.h"
 
+#import "Marker.h"
+
 @interface InfoTableViewController ()
 
 @end
@@ -37,23 +39,27 @@
 {
     [super viewDidLoad];
 
+    // address
     self.streetLabel.text = [NSString stringWithFormat:@"%@ %@", 
-                            [self.detailItem valueForKey:@"subThoroughfare"], 
-                            [self.detailItem valueForKey:@"thoroughfare"]];
-    self.cityLabel.text = [self.detailItem valueForKey:@"city"];
-    self.stateLabel.text = [self.detailItem valueForKey:@"state"];
-    self.countryLabel.text = [self.detailItem valueForKey:@"country"];
+                            self.detailItem.subThoroughfare,
+                             self.detailItem.thoroughfare];
+    self.cityLabel.text = self.detailItem.city;
+    self.stateLabel.text = self.detailItem.state;
+    self.countryLabel.text = self.detailItem.country;
     
+    // coordinates
     self.latitudeLabel.text = [NSString stringWithFormat:@"%f", 
-                              [[self.detailItem valueForKey:@"latitude"] doubleValue]];
+                              self.detailItem.latitude.doubleValue];
     self.longitudeLabel.text = [NSString stringWithFormat:@"%f", 
-                               [[self.detailItem valueForKey:@"longitude"] doubleValue]];
+                               self.detailItem.longitude.doubleValue];
     
+    // accuracy
     self.accuracyLabel.text = [NSString stringWithFormat:@"%.02f m", 
-                               [[self.detailItem valueForKey:@"accuracy"] doubleValue]];
+                              self.detailItem.accuracy.doubleValue];
     
+    // heading
     self.headingLabel.text = [NSString stringWithFormat:@"%.02f\u00B0", 
-                               [[self.detailItem valueForKey:@"heading"] doubleValue]];
+                               self.detailItem.heading.doubleValue];
     
 }
 
@@ -68,8 +74,6 @@
     [self setAccuracyLabel:nil];
     [self setHeadingLabel:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

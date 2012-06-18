@@ -295,8 +295,8 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [[segue destinationViewController] setDetailItem:object];
+        Marker *marker = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        [[segue destinationViewController] setDetailItem:marker];
     }
 }
 
@@ -399,19 +399,18 @@
     TEXT_LABEL_WIDTH_IPHONE_LANDSCAPE;
     CGSize maxLabelSize = CGSizeMake(maxWidth, maxHeight);
     
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Marker *marker = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     // construct address string and figure out its size
-    NSString *address = [object valueForKey:@"address"];
-    CGSize textLabelSize = [address sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18.0f]
+    CGSize textLabelSize = [marker.address 
+                           sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18.0f]
                            constrainedToSize:maxLabelSize lineBreakMode:UILineBreakModeWordWrap];
     
     // construct date string and figure out its size
-    NSDate *date = [object valueForKey:@"timestamp"];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
-    NSString *dateString = [dateFormatter stringFromDate:date];
+    NSString *dateString = [dateFormatter stringFromDate:marker.timestamp];
     CGSize detailTextLabelSize = [dateString sizeWithFont:[UIFont fontWithName:@"Helvetica" 
                                  size:14.0f] constrainedToSize:maxLabelSize 
                                  lineBreakMode:UILineBreakModeWordWrap];
@@ -422,17 +421,15 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Marker *marker = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    NSString *address = [object valueForKey:@"address"];
-    cell.textLabel.text = address;
+    cell.textLabel.text = marker.address;
     
     // construct date string and set the detail text label's value accordingly
-    NSDate *date = [object valueForKey:@"timestamp"];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
-    cell.detailTextLabel.text = [dateFormatter stringFromDate:date];
+    cell.detailTextLabel.text = [dateFormatter stringFromDate:marker.timestamp];
 }
 
 #pragma mark - Location Manager Delegate
