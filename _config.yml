@@ -4,7 +4,7 @@ auto: true
 production: true 
 
 title: 'Pharos'
-subtitle: 'Clever tagline.'
+subtitle: 'Get Back to Where You Were'
 author:
   name: 'Jake Harding'
   email: 'jacob.s.harding@gmail.com'
