@@ -1,6 +1,10 @@
 .container-main.landing {
+  // iphone carousel
   .iphone {
     position: relative;
+    float: left;
+    display: inline-block;
+    .ie7-inline-block();
     width: 230px;
     height: 450px;
     background: url('/public/img/iphone.png') no-repeat;
@@ -34,6 +38,26 @@
           }
         }
       }
+    }
+  }
+
+  .copy-container {
+    position: relative;
+    float: right;
+    width: 500px;
+    height: 450px;
+    .app-store-badge {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 145px;
+      height: 50px;
+      background: url('/public/img/app_store_badge.png') no-repeat;
+    }
+    .social-media {
+      position: absolute;
+      right: 0;
+      bottom: 0;
     }
   }
 }

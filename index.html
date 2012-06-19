@@ -14,3 +14,11 @@ keywords: ''
       --></div>
   </div>
 </div>
+
+<div class='copy-container'>
+  {% capture description %}{% include description.md %}{% endcapture %}
+  {{ description | markdownify }}
+
+  {% include social_media.html %}
+  <div class='app-store-badge'></div>
+</div>
