@@ -144,7 +144,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Address of the location." id="XeM-30-hzl">
+                            <tableViewSection headerTitle="Physical address." id="XeM-30-hzl">
                                 <cells>
                                     <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="17m-kA-tIE">
                                         <rect key="frame" x="0.0" y="46" width="320" height="45"/>
@@ -248,7 +248,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="The coordinates of the location." id="umv-DI-6rM">
+                            <tableViewSection headerTitle="Geographic coordinates." id="umv-DI-6rM">
                                 <cells>
                                     <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="5LF-2d-c2Z">
                                         <rect key="frame" x="0.0" y="270" width="320" height="45"/>
@@ -302,10 +302,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="The radius of uncertainty for the coordinates. Lower numbers are better here." id="jja-Lg-ZMn">
+                            <tableViewSection headerTitle="The radius of uncertainty for the coordinates. The lower the number, the more accurate the coordinates are." id="jja-Lg-ZMn">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aO9-0A-D2l">
-                                        <rect key="frame" x="0.0" y="448" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="469" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
@@ -331,10 +331,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="The direction the device was pointing when the location was saved. The value 0° is due north." id="aqH-Tj-CC1">
+                            <tableViewSection headerTitle="The direction the device was pointing when the location was saved. North is 0°, east is  90°, south is 180°, and west is 270°." id="aqH-Tj-CC1">
                                 <cells>
                                     <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ZRc-hx-vju">
-                                        <rect key="frame" x="0.0" y="582" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="624" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
