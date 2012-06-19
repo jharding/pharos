@@ -1,0 +1,39 @@
+.container-main.landing {
+  .iphone {
+    position: relative;
+    width: 230px;
+    height: 450px;
+    background: url('/public/img/iphone.png') no-repeat;
+    .iphone-screen {
+      @screenWidth: 194px;
+      @screenHeight: 291px;
+      position: relative;
+      top: 80px;
+      left: 19px;
+      width: @screenWidth;
+      height: @screenHeight;
+      overflow: hidden;
+      .screenshots {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: @screenWidth * 3;
+        .screenshot {
+          display: inline-block;
+          .ie7-inline-block();
+          width: @screenWidth;
+          height: @screenHeight;
+          &.splash {
+            background: url('/public/img/screenshots/splash.png') no-repeat;
+          }
+          &.list {
+            background: url('/public/img/screenshots/list.png') no-repeat;
+          }
+          &.map {
+            background: url('/public/img/screenshots/map.png') no-repeat;
+          }
+        }
+      }
+    }
+  }
+}
