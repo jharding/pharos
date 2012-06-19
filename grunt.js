@@ -4,6 +4,13 @@ module.exports = function(grunt) {
       files: 'src/js/**/*'
     },
     concat: {
+      landing: {
+        src: ['src/vendor/jquery/jquery-1.7.2.js',
+              'src/vendor/bootstrap/js/bootstrap-transition.js',
+              'src/vendor/bootstrap/js/bootstrap-carousel.js',
+              'src/js/landing/start_carousel.js'],
+        dest: 'public/js/landing.js'
+      },
       map: {
         src: ['src/vendor/underscore/underscore.js',
               'src/js/map/utils.js',
@@ -12,6 +19,10 @@ module.exports = function(grunt) {
       }
     },
     min: {
+      landing: {
+        src: 'public/js/landing.js', 
+        dest: 'public/js/landing.min.js'
+      },
       map: {
         src: 'public/js/map.js', 
         dest: 'public/js/map.min.js'

@@ -18,13 +18,20 @@
       .box-shadow(0 5px 5px rgba(0, 0, 0, .4));
       .content {
         padding: 50px;
+        .clearfix();
       }
     }
   }
   .footer-wrapper {
     border-top: 5px solid @footerBorderColor;
     .container-footer {
-      min-height: 100px;
+      .copyright {
+        line-height: 50px;
+        color: @footerTextColor;
+        a {
+          color: @footerTextColor;
+        }
+      }
     }
   }
 }

@@ -28,7 +28,7 @@
   <body class='default-layout'>
     <div class='body-wrapper'>
       <header class='container container-header'>
-        <h1>{{ site.title }} - {{ site.subtitle }}</h1>
+        <h1>{{ site.title }}</h1>
       </header>
       <div class='container container-main {{ page.class }}'>
         <div class='content'>
@@ -38,7 +38,9 @@
     </div>
 
     <div class='footer-wrapper'>
-      <footer class='container container-footer'></footer>
+      <footer class='container container-footer'>
+        <p class='copyright'>&copy; <a href='http://thejakeharding.com'>Jake Harding</a>  2012.</p>
+      </footer>
     </div>
     
     {% for file in page.javascript %}

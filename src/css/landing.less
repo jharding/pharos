@@ -1,0 +1,60 @@
+.container-main.landing {
+  // iphone carousel
+  .iphone {
+    @screenWidth: 194px;
+    @screenHeight: 291px;
+    
+    position: relative;
+    float: left;
+    display: inline-block;
+    .ie7-inline-block();
+    width: 230px;
+    height: 450px;
+    background: url('/public/img/iphone.png') no-repeat;
+    .carousel {
+      position: relative;
+      top: 80px;
+      left: 19px;
+      width: @screenWidth;
+      height: @screenHeight;
+      .carousel-inner {
+        .item {
+          width: @screenWidth;
+          height: @screenHeight;
+          &.splash {
+            background: url('/public/img/screenshots/splash.png') no-repeat;
+          }
+          &.list {
+            background: url('/public/img/screenshots/list.png') no-repeat;
+          }
+          &.map {
+            background: url('/public/img/screenshots/map.png') no-repeat;
+          }
+        }
+      }
+    }
+  }
+
+  .copy-container {
+    position: relative;
+    float: right;
+    width: 500px;
+    height: 450px;
+    h2 {
+      margin-bottom: 30px;
+    }
+    .app-store-badge {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 145px;
+      height: 50px;
+      background: url('/public/img/app_store_badge.png') no-repeat;
+    }
+    .social-media {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}

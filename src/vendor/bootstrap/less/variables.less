@@ -7,6 +7,12 @@
 // GLOBAL VALUES
 // --------------------------------------------------
 
+// Pharos colors 
+// -------------------------
+@pharosBlue:            #a7d2e9;
+@pharosBlueDark:        darken(@pharosBlue, 30%);
+@pharosGold:            #ffdb73;
+@pharosGoldDark:        darken(@pharosGold, 30%);
 
 // Grays
 // -------------------------
@@ -39,7 +45,7 @@
 
 // Links
 // -------------------------
-@linkColor:             #08c;
+@linkColor:             @pharosBlueDark;
 @linkColorHover:        darken(@linkColor, 15%);
 
 
@@ -49,9 +55,9 @@
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;
 
-@baseFontSize:          13px;
+@baseFontSize:          15px;
 @baseFontFamily:        @sansFontFamily;
-@baseLineHeight:        18px;
+@baseLineHeight:        23px;
 @altFontFamily:         @serifFontFamily;
 
 @headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily

@@ -1,6 +1,25 @@
 ---
 layout: default
-class: splash
+class: landing
+javascript: ['/public/js/landing.js']
 description: ''
 keywords: ''
 ---
+
+<div class='iphone'>
+  <div id='iphone-screen' class='carousel slide'>
+    <div class='carousel-inner'><!--
+      --><div class='item splash active'></div><!--
+      --><div class='item list'></div><!--
+      --><div class='item map'></div><!--
+      --></div>
+  </div>
+</div>
+
+<div class='copy-container'>
+  {% capture description %}{% include description.md %}{% endcapture %}
+  {{ description | markdownify }}
+
+  {% include social_media.html %}
+  <div class='app-store-badge'></div>
+</div>
