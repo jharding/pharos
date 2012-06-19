@@ -142,6 +142,11 @@
     annotationView.canShowCallout = YES;
     annotationView.image = annotationImage;
     
+    // center annotation image
+    // why i have to divide by 4 rather than 2 idk
+    CGPoint centerOffset = CGPointMake(-(annotationImage.size.width)/4, 0);
+    annotationView.centerOffset = centerOffset;
+    
     return annotationView;
 }
 
