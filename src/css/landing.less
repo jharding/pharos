@@ -1,6 +1,9 @@
 .container-main.landing {
   // iphone carousel
   .iphone {
+    @screenWidth: 194px;
+    @screenHeight: 291px;
+    
     position: relative;
     float: left;
     display: inline-block;
@@ -8,23 +11,14 @@
     width: 230px;
     height: 450px;
     background: url('/public/img/iphone.png') no-repeat;
-    .iphone-screen {
-      @screenWidth: 194px;
-      @screenHeight: 291px;
+    .carousel {
       position: relative;
       top: 80px;
       left: 19px;
       width: @screenWidth;
       height: @screenHeight;
-      overflow: hidden;
-      .screenshots {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: @screenWidth * 3;
-        .screenshot {
-          display: inline-block;
-          .ie7-inline-block();
+      .carousel-inner {
+        .item {
           width: @screenWidth;
           height: @screenHeight;
           &.splash {
