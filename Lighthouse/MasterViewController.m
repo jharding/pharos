@@ -16,7 +16,7 @@
 #define TEXT_LABEL_WIDTH_IPHONE_LANDSCAPE 420
 #define TEXT_LABEL_PADDING 20
 #define MAX_NUM_OF_RETRIES 3
-#define SECONDS_BETWEEN_ATTEMPTS 2
+#define SECONDS_BETWEEN_ATTEMPTS 1
 #define ADDRESS_FORMAT @"%@\n%@, %@"
 
 @interface MasterViewController ()
