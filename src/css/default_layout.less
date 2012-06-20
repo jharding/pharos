@@ -17,6 +17,7 @@
       background-color: rgba(255, 255, 255, .75);
       .box-shadow(0 5px 5px rgba(0, 0, 0, .4));
       .content {
+        min-height: 400px;
         padding: 50px;
         .clearfix();
       }
@@ -25,11 +26,22 @@
   .footer-wrapper {
     border-top: 5px solid @footerBorderColor;
     .container-footer {
-      .copyright {
-        line-height: 50px;
+      .clearfix();
+      line-height: 50px;
+      color: @footerTextColor;
+      a {
         color: @footerTextColor;
-        a {
-          color: @footerTextColor;
+      }
+      .copyright {
+        float: left;
+      }
+      .art-by {
+        float: right;
+      }
+      .links {
+        text-align: center;
+        li {
+          display: inline-block;
         }
       }
     }
