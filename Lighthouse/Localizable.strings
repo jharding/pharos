@@ -21,3 +21,15 @@
 
 // boilerplate text for tweet
 "boilerplateTweet" = "#pharos";
+
+// failed to save
+"saveErrorTitle" = "Uh oh!";
+"saveErrorMessage" = "There was a problem saving your data. Hopefully this doesn't happen again, but if it does, please contact support@pharosapp.com.";
+
+// failed to load
+"loadErrorTitle" = "Uh oh!";
+"loadErrorMessage" = "There was a problem loading your data. Hopefully this doesn't happen again, but if it does, please contact support@pharosapp.com.";
+
+// failed to connect
+"dataStoreErrorTitle" = "Uh oh!";
+"dataStoreErrorMessage" = "There was a problem connecting to the data store. You might have to reinstall the app to fix this. Contact support@pharosapp.com if you need help.";

@@ -241,16 +241,22 @@
              marker.address = NSLocalizedString(@"reverseGeocodingFailed", nil);
          }
             
-         // save context
          NSLog(@"Saving coordinates:%f,%f accuracy:%f, heading:%f", 
                coordinates.latitude, coordinates.longitude,
                location.horizontalAccuracy, heading.trueHeading);
+         
+         // save context
          NSError *saveError = nil;
          if (![context save:&saveError]) {
-             // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
              NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-             abort();
+             
+             // show alert dialog to notify user of error
+             UIAlertView *alertView = [[UIAlertView alloc] 
+                                      initWithTitle:NSLocalizedString(@"saveErrorTitle", nil) 
+                                      message:NSLocalizedString(@"saveErrorMessage", nil) 
+                                      delegate:nil cancelButtonTitle:@"OK" 
+                                      otherButtonTitles:nil];
+             [alertView show];
          }
      }];
 }
@@ -303,10 +309,15 @@
         
         NSError *error = nil;
         if (![context save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
+            
+            // show alert dialog to notify user of error
+            UIAlertView *alertView = [[UIAlertView alloc] 
+                                      initWithTitle:NSLocalizedString(@"saveErrorTitle", nil) 
+                                      message:NSLocalizedString(@"saveErrorMessage", nil) 
+                                      delegate:nil cancelButtonTitle:@"OK" 
+                                      otherButtonTitles:nil];
+            [alertView show];
         }
     }   
 }
@@ -356,10 +367,15 @@
     
 	NSError *error = nil;
 	if (![self.fetchedResultsController performFetch:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
 	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
+
+        // show alert dialog to notify user of error
+        UIAlertView *alertView = [[UIAlertView alloc] 
+                                  initWithTitle:NSLocalizedString(@"loadErrorTitle", nil) 
+                                  message:NSLocalizedString(@"loadErrorMessage", nil) 
+                                  delegate:nil cancelButtonTitle:@"OK" 
+                                  otherButtonTitles:nil];
+        [alertView show];
 	}
     
     return __fetchedResultsController;
