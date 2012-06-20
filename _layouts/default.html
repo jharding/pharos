@@ -56,5 +56,9 @@
         <script src='{{ file }}'></script>
       {% endif %}
     {% endfor %}
+
+    {% if site.production %}
+      {% include analytics.html %}
+    {% endif %}
   </body>
 </html>
