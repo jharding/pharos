@@ -25,11 +25,22 @@
   .footer-wrapper {
     border-top: 5px solid @footerBorderColor;
     .container-footer {
-      .copyright {
-        line-height: 50px;
+      .clearfix();
+      line-height: 50px;
+      color: @footerTextColor;
+      a {
         color: @footerTextColor;
-        a {
-          color: @footerTextColor;
+      }
+      .copyright {
+        float: left;
+      }
+      .art-by {
+        float: right;
+      }
+      .links {
+        text-align: center;
+        li {
+          display: inline-block;
         }
       }
     }
