@@ -176,46 +176,71 @@
      {
          [self hideHUD];
          
-         // set the timestamp and coordinates of location
          Marker *marker = [NSEntityDescription insertNewObjectForEntityForName:[entity name] 
-                                                        inManagedObjectContext:context];
-         [marker setTimestamp:[NSDate date]];
-         [marker setLatitude:[NSNumber numberWithDouble:coordinates.latitude]];
-         [marker setLongitude:[NSNumber numberWithDouble:coordinates.longitude]];
-         [marker setAccuracy:[NSNumber numberWithDouble:location.horizontalAccuracy]];
+                          inManagedObjectContext:context];
+         
+         // set the timestamp and coordinates of location
+         marker.timestamp = [NSDate date];
+         marker.latitude = [NSNumber numberWithDouble:coordinates.latitude];
+         marker.longitude = [NSNumber numberWithDouble:coordinates.longitude];
+         marker.accuracy = [NSNumber numberWithDouble:location.horizontalAccuracy];
          
          if (heading != nil) {
              [marker setHeading:[NSNumber numberWithDouble:heading.trueHeading]];
          }
          
+         // heading isn't available, default to north
          else {
              NSLog(@"Invalid heading");
-             [marker setHeading:0];
+             marker.heading = 0;
          }
+         
+         if (!error) {
+             // if placemark is available, set address
+             if ([placemarks count] > 0) {
+                 CLPlacemark *placemark = [placemarks objectAtIndex:0];
+                 
+                 marker.name = placemark.name;
+                 marker.subThoroughfare = placemark.subThoroughfare;
+                 marker.thoroughfare = placemark.thoroughfare;
+                 marker.city = placemark.locality;
+                 marker.state = placemark.administrativeArea;
+                 marker.country = placemark.country;
+                 marker.postalCode = placemark.postalCode;
+                 
+                 NSString *address = [NSString stringWithFormat:ADDRESS_FORMAT,
+                                      placemark.name, placemark.locality,
+                                      placemark.administrativeArea];
+                 marker.address = address;
+             }
              
-         // if placemark is available, set address
-         if ([placemarks count] > 0) {
-             CLPlacemark *placemark = [placemarks objectAtIndex:0];
-             
-             
-             [marker setName:placemark.name];
-             [marker setThoroughfare:placemark.thoroughfare];
-             [marker setSubThoroughfare:placemark.subThoroughfare];
-             [marker setCity:placemark.locality];
-             [marker setState:placemark.administrativeArea];
-             [marker setCountry:placemark.country];
-             [marker setPostalCode:placemark.postalCode];
-             
-             NSString *address = [NSString stringWithFormat:ADDRESS_FORMAT,
-                                  placemark.name, placemark.locality,
-                                  placemark.administrativeArea];
-             [marker setAddress:address];
+             else {
+                 NSLog(@"Reverse geocoding failed to find a placemark");
+                 
+                 marker.name = @"";
+                 marker.subThoroughfare = @"";
+                 marker.thoroughfare = @"";
+                 marker.city = @"";
+                 marker.state = @"";
+                 marker.country = @"";
+                 marker.postalCode = @"";
+                 marker.address = NSLocalizedString(@"reverseGeocodingFailed", nil);
+             }
          }
          
          else {
-             // TODO: no placemarks
+             NSLog(@"Reverse geocoding returned error: %@", error);
+             
+             marker.name = @"";
+             marker.subThoroughfare = @"";
+             marker.thoroughfare = @"";
+             marker.city = @"";
+             marker.state = @"";
+             marker.country = @"";
+             marker.postalCode = @"";
+             marker.address = NSLocalizedString(@"reverseGeocodingFailed", nil);
          }
-         
+            
          // save context
          NSLog(@"Saving coordinates:%f,%f accuracy:%f, heading:%f", 
                coordinates.latitude, coordinates.longitude,

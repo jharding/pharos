@@ -8,6 +8,9 @@
 
 "savingNewLocation" = "Getting current location...";
 
+// displayed as address when reverse geocoding fails
+"reverseGeocodingFailed" = "Unable to retrieve\nphysical address.";
+
 // alert dialog for being unable to retreive location
 "noLocationAlertTitle" = "Woops";
 "noLocationAlertMessage" = "Seems like your iPhone is having trouble locating you. You should try again.";
