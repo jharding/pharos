@@ -20,6 +20,15 @@ keywords: ''
   {% capture description %}{% include description.md %}{% endcapture %}
   {{ description | markdownify }}
 
+  <form action='{{ site.newsletter_post_url }}' method='post' target='_blank' 
+        class='form-inline newsletter-form'>
+
+    <label for='email'>Sign up to recieve news about Pharos.</label>
+    <input type='email' class='input-large' placeholder='Email' name='EMAIL' 
+           id='email'>
+    <button type='submit' class='btn'>Sign Up</button>
+  </form>
+
   {% include social_media.html %}
   <div class='app-store-badge'></div>
 </div>
