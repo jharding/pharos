@@ -1,4 +1,4 @@
-exclude: ['grunt.js', 'node_modules', 'src']
+exclude: ['grunt.js', 'package.json', 'node_modules', 'src']
 auto: true
 
 production: true 
