@@ -1,4 +1,4 @@
-exclude: ['grunt.js', 'node_modules', 'src']
+exclude: ['grunt.js', 'package.json', 'node_modules', 'src']
 auto: true
 
 production: true 
@@ -12,3 +12,5 @@ author:
   github: 'jharding'
 
 newsletter_post_url: 'http://pharosapp.us5.list-manage.com/subscribe/post?u=84b410bd0176b95cf429c4171&amp;id=2bf83a08fd'
+
+itunes_url: 'http://itunes.apple.com/us/app/pharos/id537820937?ls=1&mt=8'
